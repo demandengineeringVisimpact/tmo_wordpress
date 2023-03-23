@@ -6429,26 +6429,36 @@
 
 
   // Get the Back To Top Button
-  let mybutton = document.getElementById("btn-back-to-top");
+//   let mybutton = document.getElementById("btn-back-to-top");
   
-  window.onscroll = function () {
-    scrollFunction();
-  };
+//   window.onscroll = function () {
+//     scrollFunction();
+//   };
   
-  function scrollFunction() {
-    if (
-      document.body.scrollTop > 80 ||
-      document.documentElement.scrollTop > 80
-    ) {
-      mybutton.style.display = "block";
-    } else {
-      mybutton.style.display = "none";
-    }
-  }
-  mybutton.addEventListener("click", backToTop);
+//   function scrollFunction() {
+//     if (
+//       document.body.scrollTop > 80 ||
+//       document.documentElement.scrollTop > 80
+//     ) {
+//       mybutton.style.display = "block";
+//     } else {
+//       mybutton.style.display = "none";
+//     }
+//   }
+//   mybutton.addEventListener("click", backToTop);
   
-  function backToTop() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-  }
+//   function backToTop() {
+//     document.body.scrollTop = 0;
+//     document.documentElement.scrollTop = 0;
+//   }
+ // variables 
+ jQuery(document).ready(function() {
+ var toTop = jQuery('#btn-back-to-top');
+ // logic
+ toTop.on('click', function() {
+    jQuery('html, body').animate({
+     scrollTop: jQuery('html, body').offset().top,
+   });
+ });
+});
 
