@@ -1,0 +1,203 @@
+.single-resources {
+  --bg-height: 31.0625em;
+
+  background-image: url("../images/single-resoures-bg.png");
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: auto var(--bg-height);
+
+  @include breakpoint(1880px) {
+    background-size: calc(100% + 7em) var(--bg-height);
+  }
+
+  .hentry {
+    display: grid;
+    gap: $spacer * 2;
+    grid-template-rows: 22em 1fr auto;
+    grid-template-areas: "header" "content" "footer";
+
+    .entry {
+      &__title {
+        max-width: 64rem;
+        margin: 0;
+        font-size: 2.25em;
+        line-height: 1.25;
+
+        @include breakpoint(480px) {
+          font-size: 3em;
+        }
+      }
+
+      &__header {
+        grid-area: header;
+        padding: $spacer * 2 0;
+        color: get-color(shades, lightest);
+      }
+
+      &__figure {
+        grid-area: figure;
+        margin: 0;
+      }
+
+      &__meta {
+        span {
+          &:not(:first-child)::before {
+            content: "|";
+            margin: 0 0.3em 0 0;
+          }
+        }
+      }
+
+      &__content {
+        grid-area: content;
+
+        h2,
+        > *:nth-child(2) {
+          max-width: 56.25rem;
+          font-size: 1.5em;
+          line-height: 1.46;
+          color: get-color(primary);
+        }
+      }
+
+      &__aside {
+        grid-area: aside;
+        margin-top: 2.5em;
+
+        @include breakpoint(max-width 539px) {
+          display: none;
+        }
+
+        @include breakpoint(769px) {
+          margin-top: 10.5em;
+        }
+
+        h3 {
+          font-size: 1.125em;
+          color: get-color(shades);
+        }
+
+        a {
+          color: get-color(shades);
+          text-decoration: none;
+
+          &:hover,
+          &:focus {
+            color: get-color(primary);
+          }
+        }
+
+        .menu-item {
+          margin-bottom: 0.5em;
+        }
+
+        .nav {
+          padding-left: 1em;
+          border-left: 1px solid get-color(shades, light);
+          list-style: none;
+        }
+      }
+
+      &__footer {
+        grid-area: footer;
+      }
+
+      @include breakpoint(480px) {
+        &__title {
+          font-size: 3em;
+        }
+
+        &__meta {
+          font-size: 1.25em;
+        }
+      }
+    }
+
+    @include breakpoint(540px) {
+      grid-template-columns: 9fr 3fr;
+      grid-template-rows: 22em 1fr auto;
+      grid-template-areas: "header header" "content aside" "footer footer";
+    }
+
+    @include breakpoint(769px) {
+      &.has-post-thumbnail {
+        background-image: var(--background);
+        background-repeat: no-repeat;
+        background-position: 100% 17em;
+        background-size: 30.25em auto;
+      }
+    }
+
+    &.resource_types-event {
+      grid-template-columns: auto;
+      grid-template-areas: "figure" "header" "content" "aside" "footer";
+
+      @include breakpoint(max-width 959px) {
+        .entry__header {
+          min-height: 0;
+          color: get-color(primary);
+        }
+      }
+
+      @include breakpoint(960px) {
+        grid-template-columns: 7fr 5fr;
+        grid-template-areas: "header figure" "content aside" "footer footer";
+      }
+
+      .wpcf7 {
+        --input-border-color: #{get-color(shades, light)};
+
+        max-width: 24.25em;
+        margin: 0 auto;
+        box-shadow: 0.125em 0.125em 1em rgb(0 0 0 / 0.15);
+
+        &-form {
+          display: grid;
+          gap: $spacer;
+          padding: $spacer * 2;
+
+          h3 {
+            margin: 0;
+            font-size: 1.375em;
+            color: get-color(primary);
+          }
+
+          label {
+            font-size: 1em;
+            font-weight: 700;
+            color: get-color(shades, darkest);
+          }
+        }
+
+        &-acceptance {
+          .wpcf7-list-item {
+            margin: 0;
+          }
+
+          label {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            align-items: start;
+            gap: math.div($spacer, 2);
+            font-size: 0.875em;
+            font-weight: normal;
+            line-height: 1.429;
+            color: get-color(shades);
+          }
+
+          a {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      .entry__figure {
+        margin-top: 1.5em;
+      }
+
+      .entry__aside {
+        margin-top: 3em;
+      }
+    }
+  }
+}

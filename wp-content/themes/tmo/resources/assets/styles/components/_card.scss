@@ -1,0 +1,299 @@
+.card {
+  $root: &;
+
+  &__media {
+    img {
+      display: block;
+    }
+
+    video {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__body {
+    line-height: 1.75;
+
+    ul {
+      padding-left: 1em;
+      list-style: square;
+    }
+  }
+
+  &.post {
+    height: auto;
+    background: get-color(shades, lightest);
+    box-shadow: 0 0 1em get-color(shades, light);
+
+    .eyebrow {
+      margin-bottom: math.div($spacer, 2);
+      font-size: 0.875em;
+      color: get-color(shades);
+    }
+
+    .entry__postdate:not(:first-child) {
+      &::before {
+        content: "|";
+        margin-right: 0.3em;
+      }
+    }
+
+    .entry__category {
+      color: get-color(shades);
+
+      &:not(:last-child) {
+        &::after {
+          content: ",";
+        }
+      }
+
+      &:hover,
+      &:focus {
+        color: get-color(primary);
+        opacity: 1;
+      }
+    }
+
+    #{$root}__media {
+      margin: 0;
+    }
+
+    #{$root}__header,
+    #{$root}__body,
+    #{$root}__actions {
+      padding: $spacer $spacer 0;
+    }
+
+    #{$root}__actions {
+      padding-bottom: $spacer;
+    }
+
+    #{$root}__title {
+      margin-bottom: 0;
+      font-size: 1.5em;
+      line-height: 1.5;
+    }
+
+    #{$root}__action {
+      @include rarr;
+
+      color: get-color(shades);
+
+      &:hover,
+      &:focus {
+        color: get-color(primary);
+      }
+    }
+  }
+
+  &.resources {
+    height: auto;
+    min-height: 27.5em;
+    padding: $spacer * 2;
+    padding-bottom: $spacer * 7;
+    position: relative;
+    background: get-color(shades, lightest);
+    box-shadow: 0 0 1em get-color(shades, light);
+
+    .eyebrow {
+      margin-bottom: 0.5em;
+      color: get-color(shades);
+    }
+
+    #{$root}__title {
+      margin-bottom: 0.5em;
+      font-size: 1.5em;
+      line-height: 1.5;
+      cursor: pointer;
+
+      &:hover,
+      &:focus {
+        color: get-color(shades, darkest);
+      }
+    }
+
+    #{$root}__media {
+      display: grid;
+      margin: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow: hidden;
+
+      img {
+        width: calc(100% - 1em);
+        height: calc(100% - 1em);
+        max-width: 20.625em;
+        max-height: 12.5em;
+        margin-top: auto;
+        margin-left: auto;
+        object-fit: scale-down;
+        object-position: bottom right;
+      }
+    }
+
+    #{$root}__header,
+    #{$root}__body,
+    #{$root}__actions {
+      position: relative;
+      z-index: 1;
+    }
+
+    #{$root}__body {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      overflow: hidden;
+    }
+
+    #{$root}__action {
+      @include rarr;
+
+      color: get-color(shades);
+
+      &:hover,
+      &:focus {
+        color: get-color(primary);
+        text-decoration: none;
+      }
+    }
+
+    #{$root}__actions {
+      margin-top: $spacer;
+    }
+  }
+
+  &.clients {
+    height: auto;
+    min-height: 28em;
+    position: relative;
+    margin-bottom: $spacer;
+    background: get-color(shades, lightest);
+    box-shadow: 0 0 1em get-color(shades, light);
+
+    .eyebrow {
+      color: get-color(shades);
+    }
+
+    #{$root}__title {
+      margin-bottom: 0;
+      font-size: 1.5em;
+      line-height: 1.5;
+      color: get-color(primary);
+    }
+
+    #{$root}__action {
+      @include rarr;
+
+      color: get-color(shades);
+
+      &:hover,
+      &:focus {
+        color: get-color(primary);
+      }
+    }
+
+    #{$root}__header,
+    #{$root}__actions {
+      padding: 0 $spacer $spacer;
+    }
+
+    #{$root}__body {
+      display: none;
+    }
+
+    #{$root}__header {
+      padding-top: $spacer;
+      padding-bottom: math.div($spacer, 2);
+    }
+
+    #{$root}__media {
+      display: grid;
+      height: 13em;
+      margin: 0;
+      background: get-color(primary);
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: scale-down;
+        filter: brightness(0) invert(1);
+      }
+    }
+  }
+
+  &.events,
+  &.webinars {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    height: auto;
+    background: get-color(shades, lightest);
+    box-shadow: 0 0 5px rgba(0 0 0 / 0.2);
+
+    #{$root}__media,
+    #{$root}__title {
+      margin: 0;
+    }
+
+    #{$root}__header,
+    #{$root}__actions {
+      padding: 0 $spacer $spacer;
+    }
+
+    #{$root}__header {
+      padding-top: $spacer;
+    }
+
+    #{$root}__body {
+      display: none;
+    }
+
+    #{$root}__media {
+      img {
+        width: 100%;
+      }
+    }
+
+    #{$root}__action {
+      @include rarr;
+
+      text-decoration: none;
+      color: get-color(primary);
+
+      &:hover,
+      &:focus {
+        color: get-color(shades);
+      }
+    }
+
+    .entry__meta {
+      color: get-color(shades);
+    }
+  }
+
+  &.mailing-list {
+    --paragraph-color: currentColor;
+
+    display: grid;
+    align-content: center;
+    padding: $spacer * 2;
+    background: get-color(primary);
+    text-align: center;
+    color: get-color(shades, lightest);
+
+    #{$root}__title {
+      font-size: 1.5em;
+      line-height: 1.7;
+    }
+
+    #{$root}__action {
+      @include rarr;
+
+      color: get-color(shades, lightest);
+    }
+  }
+}

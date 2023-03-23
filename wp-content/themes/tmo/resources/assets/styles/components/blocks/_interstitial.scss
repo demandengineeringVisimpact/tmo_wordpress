@@ -1,0 +1,32 @@
+.block.-interstitial {
+  padding-top: 6.1875em;
+  margin: $spacer * 3 0;
+  background-image: url("../images/brand-icon.png");
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  text-align: center;
+
+  .interstitial__title {
+    max-width: 20.25em;
+    margin: 0 auto;
+    font-size: 2em;
+    line-height: 1.5;
+
+    @include breakpoint(640px) {
+      font-size: 2.5em;
+    }
+  }
+
+  .wp-block-buttons {
+    margin-top: $spacer * 3;
+    justify-content: center;
+
+    .wp-block-button {
+      margin: 0 math.div($spacer, 2) math.div($spacer, 2);
+    }
+  }
+
+  @include breakpoint(540px) {
+    margin: $spacer * 8 0;
+  }
+}

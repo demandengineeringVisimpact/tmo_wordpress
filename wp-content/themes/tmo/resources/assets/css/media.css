@@ -1,0 +1,121 @@
+/* Website Global color 
+========================================================== */
+:root{  /* Colors: */
+
+  /* PRIMARY COLORS */
+  --primary-color:#FFFFFF;
+  --secondary-color:#233a78;
+  --unnamed-color-red:red;
+  --unnamed-color-2d3056:#2d3056;
+  --unnamed-color-8e8e90:#8e8e90;
+  --unnamed-color-8e8e90-5:rgb(142, 142, 144,0.5);
+  --unnamed-color-a3a5ae:#a3a5ae;
+  --unnamed-color-ecebeb:#ecebeb;
+  --unnamed-color-EDECEC:#EDECEC;
+  --unnamed-color-DBDBDB:#DBDBDB;
+  --unnamed-color-667199:#667199;
+  
+   /* GLOBAL SHADE COLOR CODE */
+   --unnamed-color-fff:#fff; 
+   --unnamed-color-000:#000;
+  
+   /* FONT FAMILY VARIABLE */
+   --primary-font-family:'AvantGarde';
+  }
+@media(min-width:1900px){
+}
+/* GLOBAL CONTAINER SIZE CSS */
+@media (min-width: 117.5em){
+  .banner-sc{
+    background-size: calc(100% + 7em) 53.3125em;
+  }
+  
+}
+@media(max-width:1400px){
+  .inner-container{max-width:1050px;}
+
+  /* MODAL CSS */
+  .modal-dialog{margin:1.5rem auto;}
+}
+@media (max-width:1199.98px){
+  h1{font-size:38px;line-height:45px;}
+  h2{font-size:30px;line-height:35px;}
+  h4{font-size:21px;line-height:25px;}
+  h6{font-size:18px;line-height:27px;}
+  .inner-container{max-width:900px;}
+
+  /* FORM CONRTOL CSS */
+  .form-group label{font-size:14px;line-height:normal;margin-bottom:10px;}
+
+  /* BANNER-SECTION CSS */
+  .schedule-form-sc{padding:30px;}
+  /*.banner-sc{background-size: cover;}*/
+}
+
+/*=========================================================
+// Medium devices (tablets, less than 992px)
+===========================================================*/
+@media (max-width:991.98px){
+  h1{font-size:33px;line-height:42px;}
+  h4{font-size:20px;line-height:normal;}
+  h6{font-size:16px;line-height:25px;}
+  p{font-size:16px;line-height:20px;}
+  .container{max-width:100%;padding:0px 20px;}
+  .inner-container{max-width:90%;}
+
+  /* COMMON SPACING CSS */
+  .common-spacing{padding:70px 0px;}
+
+  /* BANNER-SECTION CSS */
+  .schedule-form-sc{padding:30px 20px;margin:auto;}
+
+  /* TESTIMONIAL SECTION CSS */
+  .testimonial-text{max-width:100%;padding:100px 15px 50px;}
+  .testimonial-text h4{line-height:35px;}
+}
+
+/*=========================================================
+// Small devices (landscape phones, less than 768px)
+===========================================================*/
+@media (max-width:767.98px){
+  p{font-size:16px;line-height:25px;}
+  .font-23{font-size:18px;line-height:20px;}
+  .font-16{font-size:15;}
+  .font-15{font-size:14px;line-height:21px;}
+  .font-14{font-size:13px;line-height:22px;}
+  .common-spacing{padding:60px 0px;}
+  .container,
+  .inner-container{max-width:97%;padding:0px 15px;}
+
+  /* HEADER SECTION */
+  /* .wrapper{padding:10px 0px;} */
+  .brand img,
+  .footer-logo{width:165px;}
+
+  /* TESTIMONIAL SECTION CSS */
+  .testimonial-text h4{line-height: 31px;font-size: 16px;}
+
+  /* BANNER SECTION CSS */
+  .banner-img{padding:40px 0px 0px;}
+
+  /* LEADING SECTION CSS */
+  .play-icon{width: 50px;height: 50px;top: 23px;padding: 15px;}
+
+  /* REVIEW SECTION CSS */
+  .review-sc{margin-top:50px;margin-bottom: 20px;}
+
+  /* MODAL CSS */
+  .btn-close{top: 5px;right: 5px;font-size: 12px;}
+}
+@media(max-width:575px){
+  .container{max-width:100%;padding:0px 15px;}
+
+  /* AWARD SECTION CSS */
+  .awrad-img img{max-height:100px;}
+
+  /* MODAL CSS */
+  .modal.fade .modal-dialog{max-width:90%;}
+}
+
+
+

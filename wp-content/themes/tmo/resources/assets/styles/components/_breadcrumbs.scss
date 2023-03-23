@@ -1,0 +1,20 @@
+.breadcrumbs {
+  $root: &;
+
+  margin-bottom: $spacer * 2;
+
+  a {
+    color: get-color(shades, lightest);
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      opacity: 0.4;
+    }
+  }
+
+  .icon-keyboard_arrow_right {
+    font-size: 0.625em;
+    margin: 0 0.3em;
+  }
+}

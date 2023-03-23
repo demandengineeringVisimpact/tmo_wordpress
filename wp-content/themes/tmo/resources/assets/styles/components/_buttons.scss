@@ -1,0 +1,23 @@
+.wp-block-button {
+  $root: &;
+
+  &__link {
+    @include button;
+  }
+
+  &.is-style-outline {
+    #{$root}__link {
+      @include button(outline);
+    }
+  }
+
+  &.is-style-arrow-cta {
+    #{$root}__link {
+      @include button(arrow);
+    }
+  }
+}
+
+.wp-block-buttons {
+  gap: 2rem;
+}

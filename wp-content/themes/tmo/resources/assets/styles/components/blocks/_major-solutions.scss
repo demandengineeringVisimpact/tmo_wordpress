@@ -1,0 +1,150 @@
+.block.-major-solutions {
+  // --paragraph-color: currentcolor;
+
+  background-image: url("../images/bg-hexagonals.png"), url("../images/bg-hexagonals.png");
+  background-repeat: no-repeat;
+  background-position: -26em 50em, calc(100% + 20em) 0;
+  background-size: 40.875em 60em;
+  margin-top: $spacer * 5;
+
+  .container {
+    max-width: 75em;
+    margin: 0 auto;
+  }
+
+  .major-solutions {
+    &__eyebrow {
+      font-size: 1.25rem;
+      color: get-color(primary);
+
+      &::before {
+        content: "";
+        display: block;
+        width: 1.4em;
+        height: 2px;
+        margin-bottom: $spacer * 1.5;
+        background: get-color(primary);
+      }
+    }
+
+    &__title {
+      max-width: 23.75em;
+      font-size: 2rem;
+      font-weight: normal;
+      line-height: 1.375;
+    }
+
+    &__content {
+      max-width: 48.333em;
+      font-size: 1.125em;
+      line-height: 1.778;
+    }
+  }
+
+  .card {
+    display: grid;
+    grid-template-areas: "media" "header" "body" "actions";
+    gap: $spacer;
+    transition: transform 0.6s, opacity 0.6s;
+
+    &.hide {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+
+    @include breakpoint(640px) {
+      @include columns(2, (0, $spacer * 3));
+
+      grid-template-areas: "media header" "media body" "media actions";
+      grid-template-rows: repeat(3, auto);
+      align-content: center;
+      height: 100vh;
+      max-height: 600px;
+
+      &:nth-child(2n) {
+        grid-template-areas: "header media" "body media" "actions media";
+      }
+    }
+
+    &__title {
+      margin: 0;
+      font-weight: normal;
+    }
+
+    &__media {
+      grid-area: media;
+      margin: 0;
+      align-self: center;
+    }
+
+    &__header {
+      grid-area: header;
+      align-self: end;
+      font-size: 1.5em;
+      line-height: 1.833;
+    }
+
+    &__body {
+      grid-area: body;
+      max-width: 29.875em;
+
+      h4 {
+        margin: 0;
+        font-size: 1.125em;
+      }
+
+      a {
+        color: get-color(primary);
+
+        &:hover,
+        &:focus {
+          color: get-color(shades);
+        }
+      }
+    }
+
+    &__action {
+      @include rarr();
+
+      color: get-color(primary);
+    }
+
+    &__actions {
+      grid-area: actions;
+    }
+
+    &-list {
+      --gap: #{$spacer * 4.5};
+
+      margin-top: var(--gap);
+    }
+
+    &.initialized {
+      .card__media {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.major-solutions-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  .wrapper {
+    display: grid;
+    position: sticky;
+    top: 20px;
+  }
+
+  .card__media {
+    grid-area: 1 / 1 / 2 / 2;
+    margin: 0;
+    transition: opacity 0.4s;
+
+    &:not(.active) {
+      opacity: 0;
+    }
+  }
+}

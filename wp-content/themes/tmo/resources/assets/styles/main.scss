@@ -1,0 +1,22 @@
+@use "sass:list";
+@use "sass:math";
+@use "sass:map";
+
+@import "config";
+@import "utils";
+
+/** Import npm dependencies  */
+@import "~@fancyapps/fancybox/dist/jquery.fancybox";
+@import "~swiper/swiper";
+@import "~swiper/modules/effect-fade/effect-fade";
+@import "~swiper/modules/navigation/navigation";
+@import "~swiper/modules/pagination/pagination";
+
+/** Import everything from autoload */
+@import "./autoload/**/*";
+
+/** Import theme styles */
+@import "common/fonts";
+@import "common/global";
+@import "components";
+@import "layouts";

@@ -1,0 +1,154 @@
+.single {
+  --bg-height: 30em;
+
+  background-image: url("../images/single-resoures-bg.png");
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: auto var(--bg-height);
+
+  .hentry {
+    display: grid;
+    gap: $spacer;
+    grid-template-areas: "header" "content" "footer";
+  }
+
+  .entry {
+    &__header {
+      grid-area: header;
+      display: grid;
+      gap: $spacer;
+      min-height: 21em;
+      grid-template-rows: auto 1fr;
+      grid-template-areas: "meta" "title";
+      color: get-color(shades, lightest);
+    }
+
+    &__social {
+      margin-bottom: $spacer;
+      color: get-color(shades);
+
+      .social_sharing {
+        margin-left: 0.3em;
+      }
+    }
+
+    &__postdate:not(:first-child) {
+      &::before {
+        content: "|";
+        margin-right: 0.3em;
+      }
+    }
+
+    &__category {
+      color: get-color(shades, lightest);
+      text-decoration: none;
+
+      &:not(:last-child) {
+        &::after {
+          content: ",";
+        }
+      }
+
+      &:hover,
+      &:focus {
+        opacity: 0.5;
+      }
+    }
+
+    &__meta {
+      grid-area: meta;
+    }
+
+    &__title {
+      grid-area: title;
+      max-width: 46rem;
+      font-size: 2em;
+      line-height: 1.25;
+    }
+
+    &__thumbnail {
+      grid-area: thumbnail;
+    }
+
+    &__content {
+      grid-area: content;
+    }
+
+    &__sidebar {
+      grid-area: sidebar;
+      padding-top: 12em;
+      color: get-color(shades);
+
+      .categories {
+        padding: 0 0 0 $spacer;
+        border-left: 1px solid get-color(shades);
+        margin: 0;
+        list-style: none;
+      }
+
+      .category {
+        &:not(:last-child) {
+          padding-bottom: math.div($spacer, 2);
+        }
+
+        &__link {
+          color: get-color(shades);
+          text-decoration: none;
+
+          &:hover,
+          &:focus {
+            color: get-color(primary);
+          }
+        }
+      }
+    }
+
+    &__footer {
+      grid-area: footer;
+    }
+
+    @include breakpoint(max-width 768px) {
+      &__sidebar,
+      &__thumbnail {
+        display: none;
+      }
+    }
+
+    @include breakpoint(769px) {
+      &__header {
+        min-height: 28em;
+        grid-template-columns: 7fr 5fr;
+        grid-template-rows: auto 1fr;
+        grid-template-areas: "meta thumbnail" "title thumbnail";
+      }
+
+      &__title {
+        font-size: 2.75em;
+      }
+    }
+
+    @include breakpoint(1200px) {
+      &__header {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+
+  .feed .card.post .card__body {
+    display: none;
+  }
+
+  @include breakpoint(769px) {
+    --bg-height: 37.5em;
+
+    .hentry {
+      grid-template-columns: 9fr 3fr;
+      grid-template-areas: "header header" "content sidebar" "footer footer";
+      gap: $spacer * 2;
+    }
+  }
+
+  @include breakpoint(1880px) {
+    background-size: calc(100% + 7em) var(--bg-height);
+  }
+}

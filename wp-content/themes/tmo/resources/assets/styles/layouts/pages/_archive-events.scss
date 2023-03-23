@@ -1,0 +1,203 @@
+.archive.post-type-archive-events {
+  background-image: url("../images/bg-archive-clients.png");
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: auto 43.3125em;
+
+  &.admin-bar {
+    --top: calc(32px + 1rem);
+  }
+
+  .page__header {
+    --paragraph-color: get-color(shades, lightest);
+
+    min-height: 35em;
+    padding: 0;
+    margin-bottom: $spacer * 3;
+    text-align: left;
+
+    &,
+    .eyebrow {
+      color: get-color(shades, lightest);
+    }
+
+    .container {
+      display: grid;
+      grid-template-areas: "title" "description";
+      min-height: 32em;
+
+      @include breakpoint(960px) {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: "title media" "description media";
+      }
+    }
+
+    .page__title {
+      grid-area: title;
+      align-self: end;
+      margin: 0;
+      font-size: 3em;
+    }
+
+    .page__description {
+      grid-area: description;
+      max-width: 25.5em;
+      font-size: 1.5em;
+      font-weight: 700;
+      line-height: 1.667;
+    }
+
+    .page__media {
+      grid-area: media;
+
+      @include breakpoint(max-width 959px) {
+        display: none;
+      }
+    }
+  }
+
+  .has-posts {
+    display: grid;
+    margin-bottom: $spacer * 8;
+
+    @include breakpoint(960px) {
+      grid-template-columns: 15.625em 1fr;
+      grid-template-areas: "menu posts";
+      gap: $spacer;
+    }
+  }
+
+  .posts {
+    display: grid;
+    gap: $spacer * 2;
+    grid-area: posts;
+
+    h2 {
+      margin-bottom: 0;
+
+      &:not(:first-child) {
+        margin-top: $spacer * 2;
+      }
+    }
+
+    .entry__meta {
+      font-size: 0.875em;
+      color: get-color(shades);
+
+      > *:not(:first-child) {
+        &::before {
+          content: "|";
+          padding-right: 0.3em;
+        }
+      }
+    }
+
+    .card {
+      --spacing: #{$spacer * 2};
+
+      display: grid;
+      box-shadow: 2px 4px 10px rgba(0 0 0 / 0.1);
+      grid-template-areas: "media" "header" "body" "actions";
+
+      @include breakpoint(640px) {
+        grid-template-columns: 3fr 7fr;
+        grid-template-rows: auto 1fr auto;
+        grid-template-areas: "media header" "media body" "media actions";
+        gap: $spacer var(--spacing);
+      }
+
+      &__media {
+        display: grid;
+        grid-area: media;
+        margin: 0;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      &__header {
+        grid-area: header;
+        padding-top: var(--spacing);
+        padding-right: var(--spacing);
+      }
+
+      &__body {
+        grid-area: body;
+        padding-right: var(--spacing);
+      }
+
+      &__actions {
+        grid-area: actions;
+        padding-bottom: var(--spacing);
+        padding-right: var(--spacing);
+      }
+
+      &__title {
+        margin: 0;
+      }
+
+      &__action {
+        @include rarr;
+
+        color: get-color(shades);
+
+        &:hover,
+        &:focus {
+          color: get-color(primary);
+        }
+      }
+
+      @include breakpoint(max-width 639px) {
+        &__header,
+        &__body,
+        &__actions {
+          padding-left: var(--spacing);
+        }
+      }
+    }
+  }
+
+  .side-menu {
+    grid-area: menu;
+
+    ul {
+      display: grid;
+      gap: $spacer;
+      padding: 0 0 0 $spacer;
+      border-left: 1px solid get-color(shades, light);
+      margin: 0;
+      position: sticky;
+      top: var(--top, 1rem);
+      list-style: none;
+
+      &::before {
+        content: "";
+        width: 0.75em;
+        height: 0.75em;
+        border-radius: 50%;
+        position: absolute;
+        top: 0.5em;
+        left: -0.375em;
+        transform: translateY(var(--active-top, 0));
+        background: get-color(primary);
+        transition: transform 0.3s;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: get-color(shades);
+    }
+
+    .active a {
+      color: get-color(primary);
+    }
+
+    @include breakpoint(max-width 959px) {
+      display: none;
+    }
+  }
+}

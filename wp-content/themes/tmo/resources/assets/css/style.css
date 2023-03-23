@@ -1,0 +1,232 @@
+
+/* Website Global color 
+========================================================== */
+:root{  /* Colors: */
+
+/* PRIMARY COLORS */
+--primary-color:#FFFFFF;
+--secondary-color:#233a78;
+--unnamed-color-red:red;
+--unnamed-color-2d3056:#2d3056;
+--unnamed-color-8e8e90:#8e8e90;
+--unnamed-color-8e8e90-5:rgb(142, 142, 144,0.5);
+--unnamed-color-a3a5ae:#a3a5ae;
+--unnamed-color-ecebeb:#ecebeb;
+--unnamed-color-EDECEC:#EDECEC;
+--unnamed-color-DBDBDB:#DBDBDB;
+--unnamed-color-667199:#667199;
+
+ /* GLOBAL SHADE COLOR CODE */
+ --unnamed-color-fff:#fff; 
+ --unnamed-color-000:#000;
+    
+ /* FONT FAMILY VARIABLE */
+ --primary-font-family:'AvantGarde';
+}
+/* Website Global CSS BOF
+========================================================== */
+body,
+html{height:100%;width:100%;padding:0;margin:0;}
+body{background:var(--unnamed-color-fff);font-family:var(--primary-font-family);font-weight:400;font-size:16px;line-height:normal;text-transform:none;overflow-x:hidden;overflow-y:auto!important;}
+*,
+html{margin:0;padding:0;}
+a{color:var(--third-text);display:inline-block;}
+
+/* Common color hyperlink */
+a:hover,
+a:focus,
+a:active{color:var(--primary-color);text-decoration:none;}
+
+/* Common hover color hyperlink */
+a,
+*:hover,
+*:focus,
+*:active:focus{text-decoration:none;outline:none!important;outline-offset:0!important;}
+a img,
+img{border:none;outline:none!important;outline-offset:0!important;}
+ul,
+ol,
+dl{list-style:none;margin:0;padding:0;}
+img{height:auto;max-width:100%;vertical-align:middle;line-height:normal;}
+
+/* Transition Effect CSS BOF */
+a,
+i,
+input{transition:all 0.4s ease-in-out 0s;-webkit-transition:all 0.4s ease-in-out 0s;-moz-transition:all 0.4s ease-in-out 0s;-o-transition:all 0.4s ease-in-out 0s;-ms-transition:all 0.4s ease-in-out 0s;}
+
+/* Browser Selection CSS BOF */
+::selection{background:var(--secondary-color);color:var(--unnamed-color-fff);}
+::-moz-selection{background:var(--secondary-color);color:var(--unnamed-color-fff);}
+::-webkit-selection{background:var(--secondary-color);color:var(--unnamed-color-fff);}
+::-o-selection{background:var(--secondary-color);color:var(--unnamed-color-fff);}
+::-ms-selection{background:var(--secondary-color);color:var(--unnamed-color-fff);}
+p a{color:var(--primary-text);}
+p a:hover{text-decoration:underline;}
+
+/* Global Classes CSS BOF
+==================================================== */
+::-webkit-scrollbar{width:0px;}
+
+/* ::-webkit-scrollbar{width:5px;background-color: var(--unnamed-color-BDBDBD);} */
+
+/* ::-webkit-scrollbar-thumb{background-color:var(--unnamed-color-3E4095);-webkit-border-radius:30px;} */
+
+/* Only FireFox */
+html{scrollbar-color:var(--primary-text) var(--white);scrollbar-width:thin;scrollbar-border-radius:30px;}
+
+/* FONT-COLOR
+================================================== */
+.black-font{color:var(--unnamed-color-000);}
+.white-font{color:var(--unnamed-color-fff);}
+.primary-font{color:var(--primary-color);}
+.secondary-font{color:var(--secondary-color);}
+.grey-font{color:var(--unnamed-color-8e8e90);}
+.grey-shade-font{color:var(--unnamed-color-8e8e90-5);}
+
+/* GLOBAL FONT FAMILY
+================================================== */
+.primary-font-family{font-family:var(--primary-font-family);}
+
+/* Heading Style CSS BOF
+=================================================== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{line-height:normal;font-weight:300;font-style:normal;}
+h1{font-size:47px;line-height:50px;letter-spacing:0.5px;}
+h2{font-size:40px;line-height:43px;}
+h3{font-size:30px;line-height:33px;}
+h4{font-size:26px;line-height:30px;letter-spacing:1px;}
+h6{font-size:20px;line-height:30px;}
+p{font-size:16px;line-height:24px;letter-spacing:0.6px;margin:0 0 15px;color:var(--unnamed-color-4c4c4c);}
+.font-23{font-size:23px;line-height:26px;}
+.font-24{font-size:24px;line-height:26px;}
+.font-18{font-size:18px;line-height:30px;}
+.font-14{font-size:14px;line-height:24px;}
+
+/* z-index vaariation css */
+.z-index-9{z-index:9;}
+.z-index-99{z-index:99;}
+
+/* Font Weight Variation CSS BOF */
+.font-we-rg{font-weight:normal;}
+.font-we-bl{font-weight:bold;}
+.font-we-blk{font-weight:900;}
+.font-we-sb{font-weight:600;}
+.font-we-nr{font-weight:500;}
+
+/* Chrome, Safari, Edge, Opera */
+input{appearance:none;-moz-appearance:none;-webkit-appearance:none;}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button,
+input[type=number]{-webkit-appearance:none;margin:0;-moz-appearance:textfield;}
+
+/* form control cutom css */
+.form-group label{font-size:15px;line-height:20px;margin-bottom:20px;}
+.form-control{border-radius:2px;color:var(--unnamed-color-000);}
+.form-control:focus{border-color:var(--secondary-color);box-shadow:unset;}
+.require-field-color{color:var(--unnamed-color-red);}
+
+/*** Buttton validation CSS BOF ***/
+.btn-primary-custom{background-color:var(--secondary-color);color:var(--unnamed-color-fff);position:relative;z-index:1;padding:8px 35px;font-weight:500;font-size:16px;line-height:20px;transition:all .4s ease-in-out 0s;-moz-transition:all .4s ease-in-out 0s;-webkit-transition:all .4s ease-in-out 0s;-o-transition:all .4s ease-in-out 0s;border-radius:2px;border:1px solid var(--secondary-color);box-shadow:none;min-width:185px;}
+.btn-secondary-custom{background-color:transparent;padding:13px 35px;font-weight:500;font-size:15px;line-height:25px;font-family:var(--primary-font-family);color:var(--unnamed-color-000);min-width:185px;border-radius:30px;border-color:var(--unnamed-color-000);}
+
+/* Hover State CSS BOF */
+.btn-primary-custom:focus,
+.btn-primary-custom:active,
+.btn-secondary-custom:focus,.btn-close:focus,
+.btn-secondary-custom:active{box-shadow:none;outline:none;}
+.btn-primary-custom:hover{color:var(--unnamed-color-fff);background-color:var(--secondary-color);}
+.btn-secondary-custom:hover{background-color:var(--unnamed-color-000);color:var(--unnamed-color-fff);border-color:var(--secondary-color);}
+
+/* SOME COMMON CLASS */
+.primary-bg-color{background-color:var(--unnamed-color-fff);}
+.secondary-bg-color{background-color:var(--secondary-color);}
+.common-spacing{padding:100px 0px;}
+
+
+/* CONTAINER */
+.container{max-width: 90rem;padding: 0px 1rem;}
+
+/* SLICK SLIDER DOTS CSS */
+.slick-slider .slick-dots{position:absolute;left:0;right:0;top:calc(100% + 30px);text-align:center;display:flex;align-items:center;justify-content:center;}
+.slick-slider .slick-dots li{display:flex;margin:0;align-items:center;justify-content:center;padding:8px;position:relative;}
+.slick-slider .slick-dots li button{width:10px;height:10px;border-radius:100%;background-color:var(--unnamed-color-EDECEC);border:none;padding:0;text-indent:-9999px;cursor:pointer;}
+.slick-slider .slick-dots li.slick-active button{opacity:1;background-color:var(--secondary-color);position:relative;}
+
+/* ============================================================================= */
+
+/* NEW HEADER WITH RESPONSIVE */
+
+.header{position:absolute;top:0;left:0;width:100%;height:auto;z-index:100;margin:0 auto;right:0;transition:all 500ms ease;}
+/* .fixed-header{background:var(--unnamed-color-2d3056);transition:all 500ms ease;box-shadow:0px 0px 5px 1px rgb(0 0 0 / 80%);}
+.fixed-header .brand-hover{display:inline-block;}
+.fixed-header .wrapper{padding:15px 0px;} */
+.wrapper{display:flex;justify-content:space-between;width:100%;margin:0 auto;padding:1rem;transition:all 500ms ease;}
+/* .brand img{width:325px;} */
+
+/* BANNER SECTION COMMON SPACING CSS */
+.header-padding{padding-top:96px;}
+
+/* HOME PAGE BANNER SECTION SOC */
+.banner-img-sc{position:absolute;top:0;bottom:0;z-index:-1;left:0;right:0;}
+.banner-img-sc img{object-fit:cover;object-position:left center;}
+.banner-sc{height:100%;padding:100px 0px 0px;background-image:url('./../images/lander_tmo_images/banner_bg_img.png');background-position:calc(100% + 7em) 0;background-repeat:no-repeat;background-size: auto 53.3125em;}
+.banner-top-text{padding-right:180px;}
+.banner-img{padding:80px 0px 0px;}
+.banner-content .with-letter-spc{letter-spacing:1px;line-height:30px;}
+.schedule-form-sc{padding:30px 40px 60px;background-color:var(--unnamed-color-fff);max-width:500px;margin-left:auto;filter:drop-shadow(-2.598px 1.5px 31px rgba(0,0,0,0.15));}
+
+/* COMON TITLE SECTIO SOC */
+.title-main .title{margin-bottom:10px;}
+
+/* FOOTER SECTION CSS */
+
+/* .footer-logo{max-width: 290px;} */
+.site-address{color:var(--unnamed-color-667199);}
+
+/* REVIEW SECTION CSS */
+.star-div img{max-width:12px;margin:0px 2px;}
+.small-font{font-size:10px;}
+.review-img{min-height:30px;display:flex;align-items:center;justify-content:center;}
+.review-img img{max-height:30px;}
+.review-sc{margin-top:-115px;position:relative;margin-bottom:50px;}
+.star-content h6{line-height:normal;}
+
+/* ALTIMATE YOUR GOAL SECTION CSS */
+.play-icon{background:var(--unnamed-color-a3a5ae);width:70px;height:70px;display:flex;align-items:center;border-radius:100%;justify-content:center;position:absolute;left:5px;right:0;top:30px;bottom:0;margin:auto;cursor:pointer;}
+
+/* FEAURE SECTION CSS */
+.point-box ul li p:before{content:'';background-color:var(--secondary-color);width:7px;height:7px;display:inline-block;margin-right:10px;}
+
+/* TESTIMONIAL SECTION CSS */
+.testimonial-logo{background:var(--unnamed-color-fff);width:130px;height:130px;border-radius:100%;display:flex;align-items:center;justify-content:center;padding:10px;margin:auto;border:1px solid var(--unnamed-color-ecebeb);position:absolute;top:-65px;left:0;right:0;}
+.testimonial-content{position:relative;}
+.testimonial-text{padding:120px 0px 60px;max-width:75%;margin:auto;}
+.inner-container{max-width:1193px;margin:auto;}
+.testimonial-text h4{line-height:40px;}
+.testimonial-warpper{margin-top:65px;}
+
+/* MODAL CSS */
+.modal-dialog{margin:90px auto;}
+.modal{background:rgb(0 0 0 / 70%);}
+.modal-body{padding:0;}
+.modal-content{background-color:transparent;}
+.btn-close{background: transparent url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23233a78'><path d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/></svg>") center/1em auto no-repeat;opacity: 1;z-index: 99;right: 15px;top: 15px;color: var(--secondary-color);position: absolute;outline: none;}
+
+/* back to top button */
+#btn-back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border: 0;
+    background-color: transparent;
+    width: 50px;height: 50px;
+    background-color: #233a78;
+    border-radius: 100%;
+    color: #fff;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;transition: all .4s ease-in-out;z-index: 9999;
+}
+#btn-back-to-top i{font-size: 40px;transition: all .4s ease-in-out;}
+#btn-back-to-top:hover{color: #233a78;background-color: #fff;}

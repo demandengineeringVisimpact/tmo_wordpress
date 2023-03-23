@@ -1,0 +1,84 @@
+.block.-team {
+  margin: $spacer * 3 0;
+
+  .container {
+    display: grid;
+    gap: $spacer;
+
+    @include breakpoint(1200px) {
+      grid-template-columns: 28em 1fr;
+
+      .team {
+        padding-top: 15.625em;
+      }
+
+      .careers {
+        grid-column: 2;
+      }
+    }
+  }
+
+  .team {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: $spacer;
+    padding-top: 25vw;
+    background-image: url("../images/team-header.jpg");
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+
+    @include breakpoint(max-width 640px) {
+      font-size: 0.75em;
+    }
+  }
+
+  .teammate {
+    flex: 0 0 18.5em;
+    margin-top: 4em;
+    background: get-color(shades, lightest);
+    filter: drop-shadow(0 0 5px #{get-color(shades, light)});
+  }
+
+  .card {
+    padding: $spacer * 2;
+    text-align: center;
+
+    &__media {
+      width: 13.4375em;
+      height: 13.4375em;
+      margin: -4em auto $spacer * 2;
+      overflow: hidden;
+      border-radius: 50%;
+
+      img {
+        display: block;
+      }
+    }
+
+    &__title {
+      margin-bottom: 0;
+    }
+
+    &__body {
+      color: get-color(shades, darker);
+    }
+  }
+
+  .careers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: math.div($spacer, 2);
+    padding: $spacer;
+    margin-top: $spacer * 4;
+    background: get-color(shades, lightest);
+    filter: drop-shadow(0 0 5px #{get-color(shades, light)});
+
+    p {
+      margin: 0;
+      font-size: 1.25em;
+    }
+  }
+}

@@ -1,0 +1,35 @@
+import canadianTimeZones from '../util/canadianTimeZones';
+
+const COUNTRIES = {
+  CANADA: 'CA',
+  UNITED_STATES: 'US'
+}
+
+function getCountry() {
+  const { timeZone } = Intl.DateTimeFormat().resolvedOptions();
+  return canadianTimeZones.includes(timeZone) ? COUNTRIES.CANADA : COUNTRIES.UNITED_STATES;
+}
+
+export default class CountrySwap
+{
+  constructor()
+  {
+    this._country = getCountry();
+  }
+
+  get country()
+  {
+    return this._country
+  }
+
+  swap()
+  {
+    if (this.country === COUNTRIES.CANADA) {
+      $('.country-excludes-canada').hide();
+    }
+
+    if (this.country === COUNTRIES.UNITED_STATES) {
+      $('.is-canadian, .country-canadian-only').hide();
+    }
+  }
+}

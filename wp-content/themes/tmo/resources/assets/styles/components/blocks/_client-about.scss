@@ -1,0 +1,73 @@
+.block.-client-about {
+  --paragraph-color: currentColor;
+
+  display: grid;
+  align-items: center;
+  gap: $spacer;
+  max-width: 78.75em;
+  padding: $spacer;
+  margin: $spacer * 2 0;
+  background: get-color(shades);
+  color: get-color(shades, lightest);
+
+  @include breakpoint(540px) {
+    margin: $spacer * 5 0;
+  }
+
+  .details {
+    display: grid;
+    gap: $spacer;
+    align-content: center;
+    padding: $spacer;
+    background: get-color(shades, lightest);
+    color: get-color(shades, darkest);
+  }
+
+  @include breakpoint(max-width 639px) {
+    .details {
+      width: calc(100% + #{$spacer * 2});
+      margin-left: -#{$spacer};
+    }
+  }
+
+  @include breakpoint(640px) {
+    grid-template-columns: 6fr 4fr;
+
+    .details {
+      height: calc(100% + #{$spacer * 2});
+    }
+  }
+
+  @include breakpoint(768px) {
+    gap: $spacer * 2;
+
+    .about {
+      padding-left: $spacer * 2;
+      padding-right: $spacer * 2;
+    }
+
+    .details {
+      padding: $spacer * 2;
+    }
+  }
+
+  .detail {
+    h3 {
+      font-size: 0.875em;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+
+    &.-uses {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0 $spacer;
+
+      h3 {
+        grid-column: 1 / -1;
+      }
+    }
+  }
+}

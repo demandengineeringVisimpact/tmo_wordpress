@@ -1,0 +1,86 @@
+.block.-customerLogos {
+  --button-bg-color: transparent;
+  --button-border-color: #{get-color(shades, lightest)};
+  --button-text-hover-color: #{get-color(primary)};
+  --button-bg-hover-color: #{get-color(shades, lightest)};
+  --button-border-hover-color: #{get-color(shades, lightest)};
+  --paragraph-color: currentColor;
+
+  display: grid;
+  align-content: center;
+  min-height: 32em;
+  padding: $spacer * 2 0;
+  background:
+    linear-gradient(
+      40deg,
+      #1b1e48 0,
+      #283073 27%,
+      #17447f 100%
+    );
+  color: get-color(shades, lightest);
+
+  .container {
+    display: grid;
+    gap: $spacer;
+
+    @include breakpoint(768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .customerLogos {
+    &__content {
+      max-width: 32em;
+
+      h2 {
+        margin-bottom: 0.25em;
+        font-size: 1.5em;
+        line-height: 1.375;
+      }
+
+      p {
+        font-size: 0.875em;
+        line-height: 1.889;
+      }
+
+      @include breakpoint(540px) {
+        h2 {
+          font-size: 2.5em;
+        }
+
+        p {
+          font-size: 1.125em;
+        }
+      }
+    }
+
+    &__logo {
+      img {
+        filter: brightness(0) invert(1);
+      }
+    }
+
+    &__logos {
+      display: grid;
+      gap: $spacer * 2 $spacer;
+      align-items: center;
+      justify-items: center;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+
+      img {
+        display: block;
+        margin: 0 auto;
+      }
+
+      @include breakpoint(420px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include breakpoint(((640px, 767px), (1024px))) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  }
+}

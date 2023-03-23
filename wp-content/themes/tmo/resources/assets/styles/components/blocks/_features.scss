@@ -1,0 +1,192 @@
+.block.-features {
+  margin: $spacer 0;
+  color: var(--features-color, #{get-color(primary)});
+
+  @include breakpoint(540px) {
+    margin: $spacer * 4 0;
+  }
+
+  &.has-background {
+    --features-color: #{get-color(shades, lightest)};
+    --paragraph-color: var(--features-color);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 51.8125em;
+    padding: $spacer * 10 0;
+    background-image: url("../images/features-bg.png");
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position: 50% 0;
+
+    @include breakpoint(1880px) {
+      background-size: 100% 100%;
+    }
+  }
+
+  &.layout-grid {
+    text-align: center;
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      gap: $spacer;
+      padding: 0;
+      margin: $spacer * 3 0 0;
+      list-style: none;
+    }
+
+    .feature {
+      display: grid;
+      grid-template-rows: 3.5em auto 1fr;
+      flex: 0 0 22em;
+
+      @include breakpoint(max-width 375px) {
+        flex-shrink: 1;
+      }
+
+      &__icon {
+        font-size: 3em;
+
+        .icon {
+          display: block;
+        }
+      }
+
+      &__title {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &.layout-accordion {
+    .container {
+      display: grid;
+      gap: $spacer;
+      grid-template-areas: "media" "header" "body";
+    }
+
+    @include breakpoint(960px) {
+      .container {
+        grid-template-rows: auto 1fr;
+      }
+
+      &.position-start {
+        .container {
+          grid-template-columns: 7fr 5fr;
+          grid-template-areas: "media header" "media body";
+        }
+      }
+
+      &.position-end {
+        .container {
+          grid-template-columns: 5fr 7fr;
+          grid-template-areas: "header media" "body media";
+        }
+      }
+    }
+
+    .feature {
+      padding: $spacer;
+      box-shadow: 0 0 1px get-color(shades);
+
+      &__icon {
+        display: none;
+      }
+
+      &__title {
+        margin: 0;
+        font-size: 1.125em;
+      }
+
+      &__body {
+        p:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .features {
+      max-width: 30em;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+
+      &__title {
+        margin: 0;
+      }
+
+      &__media {
+        grid-area: media;
+        margin: 0;
+      }
+
+      &__header {
+        grid-area: header;
+      }
+
+      &__body {
+        grid-area: body;
+      }
+    }
+
+    &.is-canadian {
+      .features__title {
+        &::before {
+          @include icon("canada");
+
+          margin-right: 0.3em;
+          color: $canadian_red;
+        }
+      }
+    }
+
+    &.has-background {
+      .feature {
+        box-shadow: none !important;
+        border-bottom: 1px solid get-color(shades, lightest);
+
+        &:first-child {
+          border-top: 1px solid get-color(shades, lightest);
+        }
+
+        &.is-open {
+          border-color: rgba(get-color(shades, lightest), 0.5);
+        }
+      }
+    }
+
+    &.initialized {
+      .feature {
+        transition: box-shadow 0.3s;
+
+        &__header {
+          display: grid;
+          grid-template-columns: 1fr auto;
+          align-items: center;
+
+          &::after {
+            @include icon("keyboard_arrow_down");
+
+            font-size: 0.667em;
+            transition: transform 0.3s;
+          }
+        }
+
+        &.is-open {
+          box-shadow: 0 0 6px get-color(shades);
+
+          .feature__header::after {
+            transform: rotate(-180deg);
+          }
+        }
+
+        &:not(.is-open) {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}

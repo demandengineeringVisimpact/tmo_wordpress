@@ -1,0 +1,14 @@
+@mixin columns($columns: 2, $spacing: $spacer) {
+  $row_gap: null;
+
+  @if (type-of($spacing) == "list") {
+    $row_gap: list.nth($spacing, 1);
+    $spacing: list.nth($spacing, 2);
+  }
+
+  $percent: #{math.div(100, $columns)} + "%";
+  $gap: $spacing - math.div($spacing, $columns);
+
+  grid-template-columns: repeat($columns, calc(#{$percent} - #{$gap}));
+  gap: $row_gap $spacing;
+}

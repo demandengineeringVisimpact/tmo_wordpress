@@ -1,0 +1,102 @@
+.page.page-template-default {
+  --bg-height: 45em;
+
+  background-image: url("../images/page-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: auto var(--bg-height);
+
+  .page__header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 22em;
+    padding-top: 1em;
+    padding-bottom: 7em;
+    text-align: center;
+    color: get-color(shades, lightest);
+
+    .page__title {
+      max-width: 15.5em;
+      margin: 0 auto;
+      font-size: 2em;
+      line-height: 1.25;
+    }
+
+    .eyebrow {
+      display: block;
+      max-width: 37.2em;
+      margin: 0 auto;
+      font-size: 1em;
+      color: get-color(shades, lightest);
+    }
+
+    @include breakpoint(540px) {
+      + .wp-block-group,
+      + .wp-block-columns {
+        margin-top: $spacer * 5;
+
+        &:last-child {
+          margin-bottom: $spacer * 5;
+        }
+      }
+    }
+  }
+
+  .wp-block-columns {
+    a:not([class]) {
+      color: get-color(primary);
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        color: get-color(shades);
+      }
+    }
+  }
+
+  .wpcf7-form {
+    display: grid;
+    gap: $spacer;
+  }
+
+  .wp-block-contact-form-7-contact-form-selector.seminar-registration {
+    .wpcf7-form {
+      max-width: 60em;
+      margin: 0 auto $spacer * 5;
+
+      @include breakpoint(769px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    h2,
+    .input:nth-child(9),
+    .input:nth-child(10),
+    .input:nth-child(11) {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @include breakpoint(540px) {
+    --bg-height: 64.5625em;
+
+    .page__header {
+      min-height: 28em;
+      padding-top: 8em;
+      padding-bottom: 12em;
+
+      .eyebrow {
+        font-size: 1.25em;
+      }
+
+      .page__title {
+        font-size: 3em;
+      }
+    }
+  }
+
+  @include breakpoint(1880px) {
+    background-size: calc(100% + 7em) var(--bg-height);
+  }
+}

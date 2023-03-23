@@ -1,0 +1,225 @@
+.single-events {
+  background-image: url("../images/single-resoures-bg.png");
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: auto 31.0625em;
+
+  .hentry {
+    display: grid;
+    gap: $spacer * 2;
+    grid-template-rows: 22em 1fr auto;
+    grid-template-columns: auto;
+    grid-template-areas: "figure" "header" "content" "aside" "footer";
+
+    .wpcf7 {
+      --input-border-color: #{get-color(shades, light)};
+
+      max-width: 24.25em;
+      margin: 0 auto;
+      box-shadow: 0.125em 0.125em 1em rgb(0 0 0 / 0.15);
+
+      &-form {
+        display: grid;
+        gap: $spacer;
+        padding: $spacer * 2;
+
+        h3 {
+          margin: 0;
+          font-size: 1.375em;
+          color: get-color(primary);
+        }
+
+        label {
+          font-size: 1em;
+          font-weight: 700;
+          color: get-color(shades, darkest);
+        }
+      }
+
+      &-acceptance {
+        .wpcf7-list-item {
+          margin: 0;
+        }
+
+        label {
+          display: grid;
+          grid-template-columns: auto 1fr;
+          align-items: start;
+          gap: math.div($spacer, 2);
+          font-size: 0.875em;
+          font-weight: normal;
+          line-height: 1.429;
+          color: get-color(shades);
+        }
+
+        a {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .entry {
+      &__title {
+        max-width: 64rem;
+        margin: 0;
+        font-size: 2.25em;
+        line-height: 1.25;
+
+        @include breakpoint(480px) {
+          font-size: 3em;
+        }
+      }
+
+      &__header {
+        grid-area: header;
+        padding: $spacer * 2 0;
+        color: get-color(shades, lightest);
+      }
+
+      &__figure {
+        grid-area: figure;
+        margin: 1.5em 0 0;
+
+        .fancybox {
+          display: block;
+          position: relative;
+          text-decoration: none;
+          color: get-color(shades, lightest);
+
+          &::before {
+            @include icon("play");
+
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            width: 6.5rem;
+            height: 6.5rem;
+            padding-left: 0.5rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            background-image:
+              radial-gradient(
+                circle at center,
+                rgb(255 255 255 / 0) 0,
+                rgb(255 255 255 / 0) calc(100% - 27px),
+                rgb(255 255 255 / 0.6) calc(100% - 26px),
+                rgb(255 255 255 / 0.6) 100%
+              ),
+              radial-gradient(
+                rgb(35 58 120) 0,
+                rgb(35 58 120) calc(100% - 2rem),
+                rgb(35 58 120 / 0) calc(100% - 2rem + 1px),
+              );
+            font-size: 2em;
+          }
+
+          &:hover {
+            color: get-color(primary);
+
+            &::before {
+              background-image:
+                radial-gradient(
+                  circle at center,
+                  rgb(255 255 255 / 0) 0,
+                  rgb(255 255 255 / 0) calc(100% - 27px),
+                  rgb(255 255 255 / 0.6) calc(100% - 26px),
+                  rgb(255 255 255 / 0.6) 100%
+                ),
+                radial-gradient(
+                  rgb(255 255 255) 0,
+                  rgb(255 255 255) calc(100% - 2rem),
+                  rgb(255 255 255 / 0) calc(100% - 2rem + 1px),
+                );
+            }
+          }
+        }
+      }
+
+      &__meta {
+        span {
+          &:not(:first-child)::before {
+            content: "|";
+            margin: 0 0.3em 0 0;
+          }
+        }
+      }
+
+      &__content {
+        grid-area: content;
+
+        h2,
+        > *:nth-child(2) {
+          max-width: 56.25rem;
+          font-size: 1.5em;
+          line-height: 1.46;
+          color: get-color(primary);
+        }
+      }
+
+      &__aside {
+        grid-area: aside;
+        margin-top: 3em;
+
+        h3 {
+          font-size: 1.125em;
+          color: get-color(shades);
+        }
+
+        a {
+          color: get-color(shades);
+          text-decoration: none;
+
+          &:hover,
+          &:focus {
+            color: get-color(primary);
+          }
+        }
+
+        .menu-item {
+          margin-bottom: 0.5em;
+        }
+
+        .nav {
+          padding-left: 1em;
+          border-left: 1px solid get-color(shades, light);
+          list-style: none;
+        }
+      }
+
+      &__footer {
+        grid-area: footer;
+      }
+
+      @include breakpoint(480px) {
+        &__title {
+          font-size: 3em;
+        }
+
+        &__meta {
+          font-size: 1.25em;
+        }
+      }
+    }
+
+    @include breakpoint(max-width 959px) {
+      .entry__header {
+        min-height: 0;
+        color: get-color(primary);
+      }
+    }
+
+    @include breakpoint(960px) {
+      grid-template-columns: 7fr 5fr;
+      grid-template-areas: "header figure" "content aside" "footer footer";
+    }
+  }
+
+  // .feed.-webinars {
+  //   // width: 100vw;
+  //   margin-left: calc((100vw - 90rem) / -2);
+  //   margin-right: calc((100vw - 90rem) / -2);
+  // }
+}

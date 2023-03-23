@@ -1,0 +1,23 @@
+.page.page-template-template-support {
+  --bg-height: 31.0625em;
+
+  background-image: url("../images/single-resoures-bg.png");
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: auto var(--bg-height);
+
+  @include breakpoint(1880px) {
+    background-size: calc(100% + 7em) var(--bg-height);
+  }
+
+  .page__header {
+    display: grid;
+    align-items: center;
+    min-height: 20em;
+
+    &,
+    .eyebrow {
+      color: get-color(shades, lightest);
+    }
+  }
+}

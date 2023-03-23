@@ -1,0 +1,9 @@
+@function get-color($color, $tone: "base") {
+  @if map-has-key($theme-colors, $color) {
+    $color: map-get(map-get($theme-colors, $color), $tone);
+
+    @return $color;
+  }
+
+  @warn "#{$color} not found.";
+}

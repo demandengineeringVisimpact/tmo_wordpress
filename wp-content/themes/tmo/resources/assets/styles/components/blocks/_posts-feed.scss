@@ -1,0 +1,89 @@
+.block.-posts-feed {
+  padding: $spacer * 3 0;
+  position: relative;
+
+  @include breakpoint(540px) {
+    padding: $spacer * 5 0;
+  }
+
+  .posts-feed {
+    &__title {
+      margin: 0;
+      font-size: 1.25em;
+      font-weight: normal;
+      opacity: 0.5;
+    }
+
+    &__link {
+      font-size: 0.875em;
+      color: get-color(shades);
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        color: get-color(primary);
+        text-decoration: underline;
+      }
+    }
+
+    &__header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    &__body {
+      padding: 0 $spacer * 2;
+    }
+
+    @include breakpoint(1480px) {
+      &__body {
+        margin: 0 $spacer * -2;
+      }
+    }
+  }
+
+  .entry {
+    &__title {
+      font-size: 1.5em;
+      line-height: 1.417;
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+    }
+
+    &__summary {
+      display: -webkit-box;
+      margin-bottom: $spacer;
+      overflow: hidden;
+      line-height: 2.215;
+      color: get-color(shades, darker);
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
+
+      p {
+        margin: 0;
+      }
+    }
+
+    &__permalink {
+      color: get-color(shades);
+
+      &:hover,
+      &:focus {
+        color: get-color(primary);
+        text-decoration: none;
+      }
+    }
+  }
+
+  .feed {
+    // @include columns(4, $spacer * 2);
+
+    // display: grid;
+    margin: $spacer * 2 0;
+  }
+}

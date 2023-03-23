@@ -1,0 +1,343 @@
+.block.-testimonials {
+  --logo-size: 6em;
+
+  margin: $spacer * 2 0;
+
+  @include breakpoint(540px) {
+    margin: $spacer * 5 0;
+  }
+
+  .container {
+    display: grid;
+    align-items: center;
+    gap: $spacer;
+
+    @include breakpoint(1024px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .testimonial {
+    --paragraph-color: currentColor;
+
+    max-width: 75em;
+    padding: $spacer * 6 $spacer * 3 $spacer * 3;
+    margin: $spacer auto 0;
+    position: relative;
+    text-align: center;
+    background-color: var(--testimonial-background-color, #{get-color(primary)});
+    color: var(--testimonial-text-color, #{get-color(shades, lightest)});
+    filter: drop-shadow(0 0 4px #{get-color(shades, darker)});
+
+    &__quote {
+      grid-area: quote;
+      padding: 0;
+      margin: 0;
+
+      > * {
+        quotes: "“" "”" "‘" "’";
+      }
+
+      > :first-child::before {
+        content: open-quote;
+      }
+
+      > :last-child::after {
+        content: close-quote;
+      }
+    }
+
+    &__title,
+    &__client {
+      font-size: 0.875em;
+      font-style: italic;
+    }
+
+    &__cite {
+      display: flex;
+      flex-direction: column;
+      grid-area: cite;
+    }
+
+    .client__logo {
+      display: grid;
+      justify-content: center;
+      align-content: center;
+      grid-area: logo;
+      width: var(--logo-size);
+      height: var(--logo-size);
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      overflow: hidden;
+      transform: translate(-50%, -50%);
+      background: get-color(shades, lightest);
+
+      img {
+        max-width: 80%;
+        margin: auto;
+      }
+    }
+
+    @include breakpoint(768px) {
+      padding: $spacer * 6 $spacer * 8 $spacer * 3;
+
+      &__quote {
+        font-size: 1.5em;
+      }
+    }
+  }
+
+  .testimonials {
+    grid-column: 1 / -1;
+    width: 100%;
+    padding-left: 0.5em;
+
+    &__header {
+      h2 {
+        margin-bottom: 0.25em;
+        font-size: 2em;
+        line-height: 1.5;
+      }
+
+      a {
+        @include rarr;
+
+        color: get-color(shades);
+
+        &:hover,
+        &:focus {
+          color: get-color(primary);
+        }
+      }
+
+      + .testimonials {
+        .testimonial {
+          padding-top: $spacer * 3;
+          margin: $spacer * 3 $spacer * 3 $spacer * 3 0;
+          border-radius: 1.5em;
+        }
+
+        .client__logo {
+          top: calc(100% - 1em);
+          left: calc(100% - 1em);
+        }
+      }
+
+      @include breakpoint(520px) {
+        + .testimonials {
+          .testimonial,
+          .testimonials__footer {
+            padding-right: $spacer * 2;
+            margin-right: $spacer * 5;
+          }
+
+          .testimonial {
+            padding-left: $spacer * 2;
+            margin-bottom: $spacer * 5;
+          }
+
+          .client__logo {
+            top: 100%;
+            left: 100%;
+          }
+        }
+      }
+
+      @include breakpoint(1152px) {
+        max-width: 25em;
+
+        + .testimonials {
+          grid-column: 2;
+
+          &,
+          .testimonials__footer {
+            width: 787px;
+          }
+        }
+      }
+    }
+  }
+
+  &.layout-cite_left {
+    --testimonial-background-color: #{get-color(shades)};
+    --testimonial-text-color: #{get-color(shades, lightest)};
+
+    .client__logo {
+      align-self: end;
+      position: static;
+      transform: none;
+    }
+
+    .testimonial {
+      display: grid;
+      grid-template-columns: var(--logo-size) 1fr;
+      grid-template-rows: minmax(var(--logo-size), 1fr) 1fr;
+      grid-template-areas: "logo quote" "cite quote";
+      gap: $spacer $spacer * 4;
+      padding: $spacer * 5 $spacer * 3;
+      text-align: left;
+
+      &__quote {
+        padding-top: 4rem;
+        font-size: 1.25em;
+        background-image: url("../images/double-quotes-end.png");
+        background-repeat: no-repeat;
+        background-position: top left;
+
+        > :first-child::before,
+        > :last-child::after {
+          content: "";
+        }
+      }
+
+      &__cite {
+        text-align: center;
+      }
+    }
+  }
+
+  &.layout-with_image {
+    .testimonials {
+      &__action {
+        @include rarr;
+
+        color: get-color(shades);
+
+        &:hover,
+        &:focus {
+          color: get-color(primary);
+        }
+      }
+
+      &__footer {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: $spacer;
+        border-top: 1px solid get-color(shades, light);
+        margin-top: $spacer;
+        margin-left: auto;
+
+        .swiper-pagination {
+          flex: 0 0 auto;
+          width: auto;
+        }
+      }
+
+      @include breakpoint(769px) {
+        &__footer {
+          width: 56%;
+        }
+      }
+    }
+
+    .testimonial {
+      display: grid;
+      grid-template-areas: "image" "quote" "cite";
+      gap: $spacer;
+      padding: 0;
+      background: transparent;
+      color: get-color(shades, darkest);
+      text-align: left;
+      filter: none;
+
+      @include breakpoint(769px 960px) {
+        --logo-size: 6em;
+      }
+
+      .client__logo {
+        top: 90%;
+        left: 28%;
+        transform: translate(-50%, -100%);
+        box-shadow: 0 0 1em get-color(shades);
+      }
+
+      &__media {
+        grid-area: image;
+      }
+
+      &__quote {
+        display: grid;
+        align-items: center;
+        grid-area: quote;
+      }
+
+      &__person,
+      &__title,
+      &__client {
+        grid-column: 1;
+      }
+
+      &__person {
+        font-weight: 700;
+      }
+
+      &__video {
+        grid-column: 2;
+        grid-row: 1;
+        padding-left: 2.3rem;
+        position: relative;
+        font-weight: 600;
+        color: get-color(primary);
+        text-decoration: none;
+
+        &::before {
+          @include icon("play");
+
+          display: grid;
+          justify-content: center;
+          align-items: center;
+          width: 2rem;
+          height: 2rem;
+          margin-top: -1rem;
+          border-radius: 50%;
+          position: absolute;
+          top: 50%;
+          left: 0;
+          font-size: 0.75em;
+          background: get-color(primary);
+          color: get-color(shades, lightest);
+        }
+      }
+
+      &__cite {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-area: cite;
+      }
+
+      @include breakpoint(max-width 768px) {
+        &__media {
+          display: none;
+        }
+
+        .client__logo {
+          grid-area: image;
+          margin: 0 auto;
+          position: static;
+          transform: none;
+        }
+      }
+
+      @include breakpoint(769px) {
+        grid-template-columns: 5fr 7fr;
+        grid-template-rows: 1fr auto;
+        grid-template-areas: "image quote" "image cite";
+        gap: $spacer $spacer * 2;
+      }
+    }
+  }
+
+  @include breakpoint(520px) {
+    --logo-size: 8.75em;
+  }
+
+  @include breakpoint(768px) {
+    .testimonial {
+      margin: $spacer * 6 auto 0;
+    }
+  }
+}

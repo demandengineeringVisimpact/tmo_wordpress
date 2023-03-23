@@ -1,0 +1,133 @@
+.block.-tools {
+  a {
+    color: get-color(primary);
+
+    &:hover,
+    &:focus {
+      color: get-color(shades);
+    }
+  }
+
+  .tools {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 22em);
+    gap: var(--gap, #{$spacer});
+
+    &__header {
+      padding: $spacer * 2 0;
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin-bottom: 0;
+        font-weight: normal;
+      }
+    }
+  }
+
+  &.layout-default {
+    margin-bottom: $spacer * 3;
+
+    .tools {
+      justify-content: center;
+      justify-items: center;
+
+      @include breakpoint(640px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include breakpoint(960px) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      &__header {
+        text-align: center;
+      }
+    }
+
+    .tool {
+      max-width: 20rem;
+      padding-top: 5rem;
+      text-align: center;
+      background-image: radial-gradient(circle, rgb(0 0 0 / 0.15), rgb(0 0 0 / 0) 50%);
+      background-repeat: no-repeat;
+      background-size: 20rem 20rem;
+      background-position: top center;
+
+      &__icon {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        width: 7.6875rem;
+        height: 8.875rem;
+        margin: 0 auto;
+        position: relative;
+        background-image: url("../images/tool-icon-background.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        font-size: 3em;
+        color: get-color(shades, lightest);
+
+        &::before,
+        &::after {
+          content: "";
+          width: 3.0625rem;
+          height: 3.5rem;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          background-image: url("../images/tool-icon-flair.png");
+        }
+
+        &::before {
+          right: calc(100% + 1rem);
+        }
+
+        &::after {
+          left: calc(100% + 1rem);
+        }
+      }
+
+      &__header {
+        margin-top: $spacer;
+      }
+
+      &__title {
+        margin-bottom: 0;
+        font-weight: normal;
+        font-size: 1.5em;
+      }
+    }
+  }
+
+  &.layout-with_background {
+    .container {
+      min-height: 36em;
+
+      @include breakpoint(640px) {
+        background-image: var(--character), var(--backgroundImage);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: 100% 100%;
+      }
+    }
+
+    .tool {
+      padding: $spacer * 2;
+      background: get-color(shades, lightest);
+      box-shadow: 0 0 12px get-color(shades, light);
+
+      &__icon {
+        font-size: 3em;
+        line-height: 1;
+      }
+
+      &__title {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

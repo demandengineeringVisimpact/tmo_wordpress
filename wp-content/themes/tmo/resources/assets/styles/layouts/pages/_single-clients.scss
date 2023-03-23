@@ -1,0 +1,80 @@
+.single-clients {
+  --bg-height: 24em;
+
+  @include breakpoint(1200px) {
+    background-image: url("../images/bg-single-clients.png");
+    background-repeat: no-repeat;
+    background-position: 100% 0;
+    background-size: auto 114.9375em;
+  }
+
+  h1 {
+    font-size: 2.375em;
+    line-height: 1.316;
+  }
+
+  h3 {
+    margin-bottom: 0;
+    font-size: 1em;
+    color: get-color(shades);
+  }
+
+  p {
+    max-width: 68.5625em;
+  }
+
+  .block.-interstitial p {
+    max-width: none;
+  }
+
+  .breadcrumbs {
+    margin: $spacer * 3 0 0;
+
+    &,
+    a {
+      color: get-color(shades);
+    }
+
+    + * {
+      padding-top: $spacer * 3 !important;
+    }
+
+    a {
+      &:hover,
+      &:focus {
+        color: get-color(primary);
+        opacity: 1;
+      }
+    }
+  }
+
+  .hentry {
+    display: block;
+  }
+
+  .container .container {
+    padding: 0;
+  }
+
+  .block.-carousel {
+    width: 100vw;
+    padding: 3em $spacer;
+    margin-left: -#{$spacer};
+
+    @include breakpoint(1440px) {
+      padding: 3em calc((100vw - 90rem + #{$spacer}) / 2);
+      margin-left: calc((100vw - 90rem + #{$spacer * 2}) / -2);
+    }
+  }
+
+  .block.-contentMedia {
+    padding: 0;
+
+    @include breakpoint(max-width 768px) {
+      img {
+        width: auto;
+        max-height: 20em;
+      }
+    }
+  }
+}

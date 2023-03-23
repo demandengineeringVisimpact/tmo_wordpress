@@ -1,0 +1,50 @@
+@use "sass:list";
+@use "sass:math";
+@use "sass:map";
+
+@import "config";
+@import "utils";
+
+/** Import theme styles */
+@import "common/global";
+@import "components";
+
+.login {
+  background-color: get-color(secondary);
+
+  h1 a {
+    width: 229px;
+    height: 43px;
+    background-image: url("../images/logo.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .privacy-policy-page-link a,
+  #backtoblog a,
+  #nav a {
+    color: get-color(shades, lightest);
+
+    &:hover,
+    &:focus {
+      color: get-color(primary);
+    }
+  }
+
+  .button.button-primary {
+    display: inline-flex;
+    min-width: 8em;
+    font-size: 1em;
+    padding: 0.5em 1em;
+    border-radius: 10em;
+    border-color: currentColor;
+    background-color: get-color(primary);
+    color: get-color(shades, lightest);
+
+    &:hover,
+    &:focus {
+      background: transparent;
+      color: get-color(primary);
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@mixin rarr() {
+  margin-right: 1.3em;
+  position: relative;
+
+  &::after {
+    @include icon("arrow_right");
+
+    margin-top: 0.5em;
+    position: absolute;
+    left: calc(100% + 0.3em);
+    font-size: 0.875em;
+    transition: transform 0.3s;
+  }
+
+  &:hover::after,
+  &:focus::after {
+    transform: translateX(0.3em);
+  }
+}

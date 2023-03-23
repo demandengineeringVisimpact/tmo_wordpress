@@ -1,0 +1,61 @@
+@mixin button($style: solid) {
+  $root: &;
+
+  @if $style == arrow {
+    @include rarr;
+
+    --button-bg-color: transparent;
+    --button-text-color: get-color(shades);
+    --button-border-color: transparent;
+
+    padding: 0;
+    font-size: 1em;
+    font-weight: normal;
+    text-decoration: underline;
+  }
+
+  @if $style == solid or $style == outline {
+    padding: 0.35em 1.333em 0.25em;
+    border: 2px solid var(--button-border-color, #{get-color(primary)});
+    border-radius: 0;
+    font-weight: 700;
+    font-size: 0.875rem;
+    transition: color 0.3s, background 0.3s;
+
+    @include breakpoint(640px) {
+      font-size: 1.125rem;
+    }
+  }
+
+  @if $style == solid {
+    &,
+    &:visited {
+      background-color: var(--button-bg-color, #{get-color(primary)});
+      color: var(--button-text-color, #{get-color(shades, lightest)});
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      border-color: var(--button-border-hover-color, var(--button-border-color, #{get-color(primary)}));
+      background-color: var(--button-bg-hover-color, transparent);
+      color: var(--button-text-hover-color, #{get-color(primary)});
+    }
+  }
+
+  @if $style == outline {
+    &,
+    &:visited {
+      background-color: transparent;
+      border-color: var(--button-border-color, #{get-color(primary)});
+      color: var(--button-text-color, inherit);
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: var(--button-bg-hover-color, #{get-color(primary)});
+      color: var(--button-text-hover-color, #{get-color(shades, lightest)});
+    }
+  }
+}

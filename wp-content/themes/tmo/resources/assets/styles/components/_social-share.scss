@@ -1,0 +1,35 @@
+.social_sharing {
+  --share-color: #{get-color(shades)};
+  --share-hover-color: #{get-color(primary)};
+
+  display: inline-flex;
+  align-items: center;
+  gap: $spacer;
+  vertical-align: middle;
+
+  svg {
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+    stroke: none;
+  }
+
+  &__button {
+    text-decoration: none;
+    color: var(--share-color);
+    line-height: 1;
+
+    &:hover,
+    &:focus {
+      color: var(--share-hover-color);
+    }
+
+    &.-facebook {
+      --share-hover-color: #3b5998;
+    }
+
+    &.-twitter {
+      --share-hover-color: #55acee;
+    }
+  }
+}

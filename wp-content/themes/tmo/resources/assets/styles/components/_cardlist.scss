@@ -1,0 +1,204 @@
+.card-list {
+  --gap: #{$spacer};
+
+  display: grid;
+  gap: var(--gap);
+}
+
+.feed.-resources {
+  padding-top: $spacer * 3;
+  padding-bottom: $spacer * 3;
+  background: get-color(shades, lighter);
+
+  .swiper {
+    padding-bottom: $spacer;
+    overflow: hidden;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    --button-background: transparent;
+    --button-border-color: #{get-color(shades, light)};
+    --button-color: #{get-color(shades, light)};
+    --button-size: 1.5rem;
+    --swiper-navigation-size: 0.5em;
+
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: var(--button-size);
+    height: var(--button-size);
+    border: 2px solid var(--button-border-color);
+    border-radius: 50%;
+    position: static;
+    background: var(--button-background);
+    color: var(--button-color);
+    transition: all 0.3s;
+
+    &:hover,
+    &:focus {
+      --button-background: transparent;
+      --button-border-color: #{get-color(primary)};
+      --button-color: #{get-color(primary)};
+    }
+
+    &.swiper-button-disabled {
+      --button-background: transparent;
+      --button-border-color: #{get-color(shades)};
+      --button-color: #{get-color(shades)};
+    }
+
+    @include breakpoint(420px) {
+      --button-size: 2rem;
+      --swiper-navigation-size: 1em;
+    }
+  }
+
+  .swiper-actions {
+    display: flex;
+    gap: $spacer;
+    grid-area: 1 / 2 / 3 / 3;
+    align-self: end;
+  }
+
+  .feed__header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    margin-bottom: $spacer;
+
+    .eyebrow {
+      grid-area: 1 / 1 / 2 / 2;
+    }
+
+    h2 {
+      grid-area: 2 / 1 / 3 / 2;
+      margin-bottom: 0;
+    }
+  }
+
+  .card {
+    --spacing: 16px;
+
+    flex: 0 0 calc(100% - var(--spacing));
+    height: auto;
+
+    @include breakpoint(560px) {
+      flex-basis: calc(50% - var(--spacing));
+    }
+
+    @include breakpoint(768px) {
+      flex-basis: calc(33.333% - var(--spacing));
+    }
+
+    @include breakpoint(960px) {
+      flex-basis: calc(25% - var(--spacing));
+    }
+
+    &.swiper-slide {
+      flex-basis: auto;
+    }
+
+    &.webinars {
+      .card__body {
+        display: none;
+      }
+    }
+  }
+}
+
+.feed.-webinars {
+  padding-top: $spacer * 3;
+  padding-bottom: $spacer * 3;
+  background: get-color(shades, lighter);
+
+  .swiper {
+    padding-bottom: $spacer;
+    overflow: hidden;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    --button-background: transparent;
+    --button-border-color: #{get-color(shades, light)};
+    --button-color: #{get-color(shades, light)};
+    --button-size: 1.5rem;
+    --swiper-navigation-size: 0.5em;
+
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: var(--button-size);
+    height: var(--button-size);
+    border: 2px solid var(--button-border-color);
+    border-radius: 50%;
+    position: static;
+    background: var(--button-background);
+    color: var(--button-color);
+    transition: all 0.3s;
+
+    &:hover,
+    &:focus {
+      --button-background: transparent;
+      --button-border-color: #{get-color(primary)};
+      --button-color: #{get-color(primary)};
+    }
+
+    &.swiper-button-disabled {
+      --button-background: transparent;
+      --button-border-color: #{get-color(shades)};
+      --button-color: #{get-color(shades)};
+    }
+
+    @include breakpoint(420px) {
+      --button-size: 2rem;
+      --swiper-navigation-size: 1em;
+    }
+  }
+
+  .swiper-actions {
+    display: flex;
+    gap: $spacer;
+    grid-area: 1 / 2 / 3 / 3;
+    align-self: end;
+  }
+
+  .feed__header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    margin-bottom: $spacer;
+
+    .eyebrow {
+      grid-area: 1 / 1 / 2 / 2;
+    }
+
+    h2 {
+      grid-area: 2 / 1 / 3 / 2;
+      margin-bottom: 0;
+    }
+  }
+
+  .card {
+    --spacing: 16px;
+
+    flex: 0 0 calc(100% - var(--spacing));
+    height: auto;
+
+    @include breakpoint(560px) {
+      flex-basis: calc(50% - var(--spacing));
+    }
+
+    @include breakpoint(768px) {
+      flex-basis: calc(33.333% - var(--spacing));
+    }
+
+    @include breakpoint(960px) {
+      flex-basis: calc(25% - var(--spacing));
+    }
+
+    &.webinars {
+      .card__body {
+        display: none;
+      }
+    }
+  }
+}

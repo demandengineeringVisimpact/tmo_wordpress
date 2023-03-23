@@ -1,0 +1,62 @@
+.block.-contentIcon {
+  margin: $spacer 0;
+
+  .container & .container {
+    padding: 0;
+  }
+
+  .card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas: "icon title" "icon content";
+    gap: 0 $spacer;
+
+    &__media {
+      display: grid;
+      justify-content: center;
+      align-items: center;
+      grid-area: icon;
+      margin: 0;
+
+      .icon {
+        font-size: 2.625em;
+        color: #b6b7b9;
+      }
+    }
+
+    &__title {
+      margin: 0;
+      font-size: 1em;
+      font-weight: normal;
+      line-height: 1;
+      color: #b6b7b9;
+    }
+
+    &__header {
+      grid-area: title;
+    }
+
+    &__body {
+      grid-area: content;
+      font-size: 1.25em;
+
+      a {
+        color: get-color(shades, darkest);
+        text-decoration: none;
+
+        &:hover,
+        &:focus {
+          color: get-color(primary);
+        }
+      }
+
+      p:last-child {
+        margin: 0;
+      }
+
+      @include breakpoint(540px) {
+        font-size: 1.5em;
+      }
+    }
+  }
+}

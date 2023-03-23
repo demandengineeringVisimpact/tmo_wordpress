@@ -1,0 +1,24 @@
+$theme-colors: (
+  primary: (
+    base: #233a78,
+  ),
+  secondary: (
+    base: #ff0220,
+  ),
+  shades: (
+    lightest: #fff,
+    lighter: #f9f9f9,
+    light: #ddd,
+    base: #999,
+    dark: #777,
+    darker: #666,
+    darkest: #333,
+  ),
+  alert: (
+    base: #999,
+    error: #e60000,
+    warning: #ffa801,
+  ),
+);
+
+$canadian_red: #ff0004;

@@ -1,0 +1,30 @@
+.block.-introduction {
+  --paragraph-color: currentColor;
+
+  padding: $spacer * 3 0;
+  text-align: center;
+  color: get-color(shades, lightest);
+
+  .container {
+    max-width: 48em;
+  }
+
+  h1 {
+    font-size: 3em;
+    line-height: 1.25;
+  }
+
+  p {
+    font-size: 1.125em;
+  }
+
+  + .block.-interstitialForm {
+    margin-top: -#{$spacer * 2};
+
+    .container {
+      padding: $spacer * 3;
+      background: get-color(shades, lightest);
+      box-shadow: 0 0.3em 1.5em rgb(0 0 0 / 0.3);
+    }
+  }
+}

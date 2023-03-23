@@ -1,0 +1,368 @@
+.block.-hero {
+  .acf-block-preview & {
+    color: get-color(shades, darkest) !important;
+  }
+
+  &.layout-default,
+  &.layout-inline_video {
+    --paragraph-color: currentcolor;
+    --button-bg-color: #{get-color(shades, lightest)};
+    --button-border-color: #{get-color(shades, lightest)};
+    --button-text-color: #{get-color(primary)};
+    --button-border-hover-color: #{get-color(shades, lightest)};
+    --button-text-hover-color: #{get-color(shades, lightest)};
+    --input-border-color: #{get-color(shades, lightest)};
+    --input-bg-color: transparent;
+    --input-text-color: #{get-color(shades, lightest)};
+
+    margin: $spacer * 3 0;
+    color: get-color(shades, lightest);
+
+    .wp-block-button {
+      --button-text-color: #{get-color(primary)};
+      --button-bg-color: #{get-color(shades, lightest)};
+      --button-border-color: #{get-color(shades, lightest)};
+      --button-border-hover-color: #{get-color(shades, lightest)};
+      --button-text-hover-color: #{get-color(shades, lightest)};
+
+      &.is-style-outline {
+        --button-text-color: #{get-color(shades, lightest)};
+        --button-text-hover-color: #{get-color(primary)};
+        --button-bg-hover-color: #{get-color(shades, lightest)};
+      }
+    }
+
+    .hero__subtitle {
+      font-size: 0.833em;
+    }
+
+    .hero__title {
+      font-size: 1.75em;
+      line-height: 1.428;
+    }
+
+    .hero__action {
+      @include font-stack(primary, bold);
+
+      padding: 0;
+      border: none;
+      margin: 0;
+      position: absolute;
+      top: 19em;
+      left: 3.7em;
+      background: none;
+      font-size: 1.75em;
+      color: get-color(primary);
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.6s 1s ease-out;
+
+      &::before {
+        @include icon("hexagonal_start");
+
+        position: absolute;
+        top: 50%;
+        right: calc(100% + 0.75rem);
+        transform: translateY(-50%);
+        font-size: 1.6em;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        width: 2.857em;
+        height: 1.5em;
+        position: absolute;
+        left: calc(100% + 0.5em);
+        top: -0.9em;
+        background-image: url("../images/watch-arrow.png");
+        background-size: contain;
+        filter: drop-shadow(0 0.2em 0.2em hsla(0, 0%, 0%, 0.3));
+      }
+    }
+
+    .hero__content {
+      max-width: 43.75rem;
+      position: relative;
+      line-height: 1.667;
+      transition: all 0.6s ease-out;
+
+      .wp-block-button__link {
+        font-size: 1.125em;
+      }
+
+      @include breakpoint(max-width 540px) {
+        font-size: 0.75em;
+      }
+
+      @include breakpoint(1024px) {
+        font-size: clamp(1rem, 1.2vw, 1.375rem);
+      }
+    }
+
+    .hero__media {
+      position: relative;
+      // font-size: 0.8125em;
+
+      @include breakpoint(max-width 1023px) {
+        width: 100%;
+        height: 40em;
+        margin: 0 auto;
+        font-size: 1.125vw;
+      }
+
+      @include breakpoint(max-width 540px) {
+        font-size: 1.5vw;
+      }
+
+      @include breakpoint(1024px) {
+        font-size: clamp(0.7rem, 0.8vw, 0.9rem);
+      }
+
+      @include breakpoint(1024px 1199px) {
+        top: 7em;
+      }
+
+      @include breakpoint(1200px 1300px) {
+        top: 3em;
+      }
+
+      img {
+        filter: drop-shadow(0 1em 1em hsla(0, 0%, 0%, 0.3));
+      }
+
+      .product-screen-1,
+      .product-screen-2 {
+        max-width: none;
+        position: absolute;
+        top: 2em;
+        left: 4em;
+      }
+
+      .product-screen-1 {
+        width: 48.375em;
+        transition: all 0.6s 0.3s ease-out;
+      }
+
+      .product-screen-2 {
+        width: 35em;
+        top: 8.5em;
+        left: 24em;
+        transition: all 0.6s 0.5s ease-out;
+      }
+    }
+
+    .container {
+      display: grid;
+      gap: $spacer;
+      min-height: 24em;
+
+      @include breakpoint(540px) {
+        min-height: 35em;
+      }
+
+      @include breakpoint(1024px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    &.hide {
+      .hero__content,
+      .product-screen-1,
+      .product-screen-2,
+      .hero__action {
+        opacity: 0;
+        transition: none;
+      }
+
+      .hero__content {
+        transform: translateX(-10rem);
+      }
+
+      .product-screen-1 {
+        transform: translateX(10rem);
+      }
+
+      .product-screen-2 {
+        transform: translateX(10rem);
+      }
+    }
+
+    .wpcf7-form {
+      display: grid;
+      gap: $spacer;
+      max-width: 50em;
+      margin: 0 auto;
+
+      .input {
+        label {
+          display: none;
+        }
+      }
+
+      @include breakpoint(560px) {
+        grid-template-columns: repeat(2, 1fr) auto;
+
+        .wpcf7-submit {
+          margin-left: -1rem;
+        }
+      }
+    }
+  }
+
+  &.layout-vertical {
+    @include breakpoint(769px) {
+      margin-bottom: 8em;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+
+      @include breakpoint(max-width 959px) {
+        color: get-color(shades, lightest);
+      }
+
+      @include breakpoint(960px) {
+        flex-direction: column-reverse;
+      }
+    }
+
+    .wp-block-buttons {
+      justify-content: center;
+    }
+
+    .hero {
+      &__action {
+        display: block;
+        position: relative;
+        text-decoration: none;
+        color: get-color(shades, lightest);
+
+        &::before {
+          @include icon("play");
+
+          display: grid;
+          justify-content: center;
+          align-items: center;
+          width: 6.5rem;
+          height: 6.5rem;
+          padding-left: 0.5rem;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          border-radius: 50%;
+          background-image:
+            radial-gradient(
+              circle at center,
+              rgb(255 255 255 / 0) 0,
+              rgb(255 255 255 / 0) calc(100% - 27px),
+              rgb(255 255 255 / 0.6) calc(100% - 26px),
+              rgb(255 255 255 / 0.6) 100%
+            ),
+            radial-gradient(
+              rgb(35 58 120) 0,
+              rgb(35 58 120) calc(100% - 2rem),
+              rgb(35 58 120 / 0) calc(100% - 2rem + 1px),
+            );
+          font-size: 2em;
+        }
+
+        &:hover {
+          color: get-color(primary);
+
+          &::before {
+            background-image:
+              radial-gradient(
+                circle at center,
+                rgb(255 255 255 / 0) 0,
+                rgb(255 255 255 / 0) calc(100% - 27px),
+                rgb(255 255 255 / 0.6) calc(100% - 26px),
+                rgb(255 255 255 / 0.6) 100%
+              ),
+              radial-gradient(
+                rgb(255 255 255) 0,
+                rgb(255 255 255) calc(100% - 2rem),
+                rgb(255 255 255 / 0) calc(100% - 2rem + 1px),
+              );
+          }
+        }
+      }
+
+      &__media {
+        img {
+          width: 100%;
+        }
+      }
+
+      &__content {
+        max-width: 60em;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      @include breakpoint(max-width 539px) {
+        &__title {
+          font-size: 1.5em;
+        }
+      }
+    }
+  }
+
+  &.layout-with_form {
+    --paragraph-color: currentcolor;
+
+    color: get-color(shades, lightest);
+
+    .container {
+      display: grid;
+      gap: $spacer;
+      min-height: 40em;
+      padding-top: $spacer * 3;
+      padding-bottom: $spacer * 3;
+
+      @include breakpoint(960px) {
+        grid-template-columns: repeat(2, 1fr);
+        align-items: start;
+
+        .hero__content {
+          margin-top: $spacer * 3;
+        }
+      }
+    }
+
+    .hero__title {
+      font-size: 1.75em;
+      line-height: 1.428;
+    }
+
+    .hero__content {
+      max-width: 38rem;
+      position: relative;
+      font-size: 1.25em;
+      line-height: 1.667;
+      transition: all 0.6s ease-out;
+    }
+
+    .hero__form {
+      .wpcf7 {
+        padding: $spacer * 2;
+        background: get-color(shades, lightest);
+        color: get-color(shades, darkest);
+        box-shadow: 0 3px 8px rgba(0 0 0 / 0.2);
+
+        &-form {
+          display: grid;
+          gap: $spacer;
+        }
+      }
+    }
+  }
+
+  &.layout-inline_video {
+    .card__video {
+      max-width: 60em;
+    }
+  }
+}

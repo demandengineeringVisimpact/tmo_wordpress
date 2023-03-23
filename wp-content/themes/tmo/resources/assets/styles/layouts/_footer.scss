@@ -1,0 +1,195 @@
+.content-info {
+  --paragraph-color: currentColor;
+
+  padding: $spacer * 3 0;
+  background: get-color(primary);
+  color: get-color(shades, lightest);
+
+  .brand {
+    display: block;
+  }
+
+  .menu-item {
+    &.bold {
+      font-weight: 700;
+    }
+  }
+
+  .nav {
+    a {
+      color: inherit;
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        opacity: 0.6;
+      }
+    }
+
+    &,
+    .sub-menu {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+  }
+
+  .nav-footer {
+    padding: $spacer * 3 0;
+    border-bottom: 1px solid rgba(get-color(shades, lightest), 0.2);
+    margin-bottom: $spacer * 3;
+
+    @include breakpoint(max-width 768px) {
+      display: none;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: $spacer * 2;
+      justify-content: space-between;
+    }
+
+    .menu-item-has-children {
+      &,
+      .sub-menu {
+        display: flex;
+        flex-direction: column;
+        gap: $spacer * 0.75;
+      }
+
+      > a {
+        font-size: 1.125em;
+        font-weight: 700;
+        color: get-color(shades, lightest);
+        opacity: 0.3;
+      }
+    }
+  }
+
+  .company-phone {
+    display: block;
+    margin-top: $spacer;
+    position: relative;
+    font-size: 1.5em;
+    font-weight: bold;
+    line-height: 1;
+    color: get-color(shades, lightest);
+    text-decoration: none;
+  }
+
+  @include breakpoint(540px) {
+    .company-info {
+      display: flex;
+      gap: $spacer * 2;
+      align-items: center;
+    }
+
+    .company-phone {
+      padding-left: $spacer;
+      margin-top: 0;
+
+      &::before {
+        content: "";
+        width: 1px;
+        height: 1.625rem;
+        margin-top: -0.25rem;
+        position: absolute;
+        top: 50%;
+        right: 100%;
+        transform: translateY(-50%);
+        background: get-color(shades, lightest);
+      }
+    }
+  }
+
+  .nav-social {
+    align-self: center;
+
+    .nav {
+      display: flex;
+      gap: $spacer;
+    }
+
+    a {
+      display: block;
+      width: 1em;
+      height: 1em;
+      position: relative;
+      overflow: hidden;
+      text-indent: calc(100% + 1em);
+      font-size: 1.5em;
+
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        text-indent: 0;
+      }
+
+      &[href*="facebook.com"]::before {
+        @include icon("facebook");
+      }
+
+      &[href*="twitter.com"]::before {
+        @include icon("twitter");
+      }
+
+      &[href*="youtube.com"]::before {
+        @include icon("youtube");
+      }
+
+      &[href*="linkedin.com"]::before {
+        @include icon("linkedin");
+      }
+
+      &[href*="instagram.com"]::before {
+        @include icon("instagram");
+      }
+    }
+  }
+
+  .legal {
+    flex-wrap: wrap;
+    font-size: 0.875em;
+
+    &,
+    .nav {
+      display: flex;
+      gap: 0.3em;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+
+    p,
+    a {
+      opacity: 0.3;
+    }
+
+    a:hover,
+    a:focus {
+      opacity: 1;
+    }
+
+    .menu-item {
+      &:not(:first-child) {
+        &::before {
+          content: "|";
+          margin-right: 0.3em;
+          opacity: 0.3;
+        }
+      }
+    }
+  }
+
+  section {
+    display: grid;
+    gap: $spacer * 2 $spacer;
+
+    @include breakpoint(769px) {
+      grid-template-columns: 1fr auto;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+.page.home {
+  --bg-height: 53.3125em;
+
+  background-image: url("../images/home-bg.png");
+  background-repeat: no-repeat;
+  background-position: calc(100% + 7em) 0;
+  background-size: auto var(--bg-height);
+
+  @include breakpoint(1880px) {
+    background-size: calc(100% + 7em) var(--bg-height);
+  }
+}

@@ -1,0 +1,77 @@
+.block.-reviews {
+  margin: $spacer * 2 0;
+
+  .reviews {
+    display: grid;
+    gap: $spacer;
+    margin-left: -#{$spacer};
+    margin-right: -#{$spacer};
+
+    &__header {
+      text-align: center;
+    }
+
+    @include breakpoint(1460px) {
+      margin-left: -#{$spacer * 2};
+      margin-right: -#{$spacer * 2};
+    }
+  }
+
+  .card {
+    display: grid;
+    width: 100%;
+    max-width: 60em;
+    padding: $spacer * 2;
+    margin: 0 auto;
+
+    .eyebrow {
+      grid-row: 2;
+      color: get-color(shades, dark);
+      font-style: italic;
+    }
+
+    &__title {
+      grid-row: 1;
+      margin: 0;
+
+      &::before {
+        content: "- ";
+      }
+    }
+
+    &__header {
+      display: grid;
+      grid-row: 2;
+    }
+
+    &__body {
+      grid-row: 1;
+
+      > * {
+        quotes: "“" "”" "‘" "’";
+      }
+
+      > :first-child::before,
+      > :last-child::after {
+        font-size: 2.5em;
+        line-height: 0;
+        position: relative;
+        top: 0.3em;
+        color: get-color(primary);
+      }
+
+      > :first-child::before {
+        content: open-quote;
+        margin-left: -0.5em;
+      }
+
+      > :last-child::after {
+        content: close-quote;
+      }
+    }
+
+    &:nth-child(2n) {
+      background: get-color(shades, lighter);
+    }
+  }
+}

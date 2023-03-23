@@ -1,0 +1,100 @@
+.block.-carousel {
+  padding: $spacer * 3 0;
+  background: get-color(shades, lighter);
+  overflow: hidden;
+
+  .swiper {
+    overflow: visible;
+  }
+
+  .card {
+    flex: 0 0 100%;
+
+    @include breakpoint(560px) {
+      flex-basis: 50%;
+    }
+
+    @include breakpoint(768px) {
+      flex-basis: 33.333%;
+    }
+
+    @include breakpoint(960px) {
+      flex-basis: 25%;
+    }
+
+    &.post {
+      .card__title {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
+      }
+
+      .card__body {
+        display: none;
+      }
+    }
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    --button-background: #{get-color(primary)};
+    --button-border-color: #{get-color(primary)};
+    --button-color: #{get-color(shades, lightest)};
+    --button-size: 1.5rem;
+    --swiper-navigation-size: 0.5em;
+
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: var(--button-size);
+    height: var(--button-size);
+    border: 2px solid var(--button-border-color);
+    border-radius: 50%;
+    margin: 0;
+    position: static;
+    background: var(--button-background);
+    color: var(--button-color);
+    transition: all 0.3s;
+
+    &:hover,
+    &:focus {
+      --button-background: transparent;
+      --button-border-color: #{get-color(primary)};
+      --button-color: #{get-color(primary)};
+    }
+
+    &.swiper-button-disabled {
+      --button-background: transparent;
+      --button-border-color: #{get-color(shades)};
+      --button-color: #{get-color(shades)};
+    }
+
+    @include breakpoint(420px) {
+      --button-size: 2.625rem;
+      --swiper-navigation-size: 1em;
+    }
+  }
+
+  .swiper-actions {
+    display: flex;
+    gap: $spacer;
+  }
+
+  .carousel__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $spacer;
+
+    h2 {
+      margin-bottom: 0;
+    }
+  }
+
+  .swiper-initialized {
+    .card {
+      flex-basis: auto;
+    }
+  }
+}

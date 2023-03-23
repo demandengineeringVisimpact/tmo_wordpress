@@ -1,0 +1,184 @@
+.block.-solutions {
+  margin: 8em 0;
+
+  &,
+  p {
+    color: get-color(primary);
+  }
+
+  .solutions {
+    display: grid;
+    margin-top: $spacer * 3;
+    font-size: 6.4vw;
+    grid-template-columns: repeat(60, 0.25em);
+    grid-template-rows: repeat(122, 0.25em);
+
+    &__content {
+      text-align: center;
+
+      h2,
+      .solutions__title {
+        font-size: 2em;
+        font-weight: normal;
+      }
+
+      a {
+        color: get-color(shades);
+        text-decoration: none;
+
+        &:hover,
+        &:focus {
+          color: get-color(primary);
+          text-decoration: underline;
+        }
+      }
+
+      p {
+        max-width: 45em;
+        margin: 0 auto;
+        font-size: 1.125em;
+        line-height: 1.889;
+      }
+    }
+
+    @include breakpoint(768px) {
+      font-size: 0.975em;
+      grid-template-columns: repeat(355, 0.25em);
+      grid-template-rows: repeat(198, 0.25em);
+    }
+
+    @include breakpoint(768px 1439px) {
+      font-size: 1.083vw;
+    }
+  }
+
+  .solution {
+    --size: 0.2em;
+
+    display: flex;
+    position: relative;
+    transition: opacity 0.3s, transform 0.3s;
+    transition-timing-function: ease-out;
+
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    &:hover {
+      transform: scale(110%);
+      z-index: 1;
+      transition-delay: 0s !important;
+    }
+
+    &__image {
+      width: calc(100% + var(--size) * 2);
+      max-width: none;
+      height: calc(100% + var(--size) * 2);
+      margin: calc(var(--size) * -1);
+      object-position: center;
+      object-fit: contain;
+    }
+
+    &.-loan-origination,
+    &.-loan-servicing,
+    &.-fund-management {
+      --size: 0.4em;
+    }
+
+    &.-loan-origination { grid-area: 11 / 16 / 42 / 44; }
+    &.-loan-servicing { grid-area: 45 / 16 / 77 / 44; }
+    &.-fund-management { grid-area: 80 / 16 / 112 / 44; }
+    &.-heloc-revolving-credit-line { grid-area: 1 / 7 / 16 / 21; }
+    &.-dre-reporting { grid-area: 18 / 1 / 34 / 14; }
+    &.-adjustable-rate-mortgages { grid-area: 35 / 9 / 51 / 23; }
+    &.-escrow-administration { grid-area: 53 / 1 / 69 / 14; }
+    &.-financial-calculator { grid-area: 70 / 9 / 86 / 23; }
+    &.-ach-express { grid-area: 88 / 1 / 104 / 14; }
+    &.-trust-accounting { grid-area: 106 / 9 / 122 / 23; }
+    &.-construction-loans { grid-area: 106 / 38 / 122 / 52; }
+    &.-consumer-credit-reporting { grid-area: 88 / 47 / 104 / 60; }
+    &.-accounting-system-integration { grid-area: 70 / 38 / 86 / 52; }
+    &.-investor-borrower-portal { grid-area: 53 / 47 / 69 / 60; }
+    &.-graduated-terms-mortgage { grid-area: 35 / 38 / 51 / 52; }
+    &.-commercial-loans { grid-area: 18 / 47 / 34 / 60; }
+    &.-collateralized-mortgage-obligations { grid-area: 1 / 38 / 16 / 52; }
+
+    @include breakpoint(768px) {
+      --size: 0.3125em;
+
+      &.-loan-origination,
+      &.-loan-servicing,
+      &.-fund-management {
+        --size: 0.8125em;
+      }
+
+      &.-loan-origination { grid-area: 53 / 48 / 146 / 128; }
+      &.-loan-servicing { grid-area: 53 / 138 / 146 / 218; }
+      &.-fund-management { grid-area: 53 / 227 / 146 / 308; }
+      &.-heloc-revolving-credit-line { grid-area: 23 / 22 / 71 / 63; }
+      &.-dre-reporting { grid-area: 76 / 1 / 123 / 41; }
+      &.-adjustable-rate-mortgages { grid-area: 129 / 22 / 176 / 63; }
+      &.-commercial-loans { grid-area: 151 / 67 / 198 / 108; }
+      &.-graduated-terms-mortgage { grid-area: 129 / 112 / 176 / 153; }
+      &.-investor-borrower-portal { grid-area: 151 / 157 / 198 / 199; }
+      &.-financial-calculator { grid-area: 129 / 202 / 176 / 243; }
+      &.-accounting-system-integration { grid-area: 151 / 247 / 198 / 288; }
+      &.-consumer-credit-reporting { grid-area: 129 / 292 / 176 / 334; }
+      &.-trust-accounting { grid-area: 76 / 315 / 123 / 355; }
+      &.-ach-express { grid-area: 23 / 292 / 71 / 334; }
+      &.-escrow-administration { grid-area: 23 / 202 / 71 / 243; }
+      &.-construction-loans { grid-area: 1 / 157 / 47 / 199; }
+      &.-collateralized-mortgage-obligations { grid-area: 23 / 112 / 71 / 153; }
+    }
+  }
+
+  &.hide {
+    .solution {
+      opacity: 0;
+      transform: scale(0.1);
+      transition: none;
+    }
+  }
+
+  &.show {
+    .solution {
+      &.-loan-servicing { transition-delay: 0.15s; }
+      &.-fund-management { transition-delay: 0.3s; }
+      &.-heloc-revolving-credit-line { transition-delay: 0.3s; }
+      &.-collateralized-mortgage-obligations { transition-delay: 0.3s; }
+      &.-dre-reporting { transition-delay: 0.45s; }
+      &.-commercial-loans { transition-delay: 0.45s; }
+      &.-adjustable-rate-mortgages { transition-delay: 0.6s; }
+      &.-graduated-terms-mortgage { transition-delay: 0.6s; }
+      &.-escrow-administration { transition-delay: 0.75s; }
+      &.-investor-borrower-portal { transition-delay: 0.75s; }
+      &.-financial-calculator { transition-delay: 0.9s; }
+      &.-accounting-system-integration { transition-delay: 0.9s; }
+      &.-ach-express { transition-delay: 1.05s; }
+      &.-consumer-credit-reporting { transition-delay: 1.05s; }
+      &.-trust-accounting { transition-delay: 1.2s; }
+      &.-construction-loans { transition-delay: 1.2s; }
+
+      @include breakpoint(768px) {
+        &.-loan-servicing { transition-delay: 0.15s; }
+        &.-fund-management { transition-delay: 0.3s; }
+        &.-construction-loans { transition-delay: 0.45s; }
+        &.-escrow-administration { transition-delay: 0.6s; }
+        &.-collateralized-mortgage-obligations { transition-delay: 0.6s; }
+        &.-heloc-revolving-credit-line { transition-delay: 0.75s; }
+        &.-ach-express { transition-delay: 0.75s; }
+        &.-dre-reporting { transition-delay: 0.9s; }
+        &.-trust-accounting { transition-delay: 0.9s; }
+        &.-adjustable-rate-mortgages { transition-delay: 1.05s; }
+        &.-consumer-credit-reporting { transition-delay: 1.05s; }
+        &.-commercial-loans { transition-delay: 1.2s; }
+        &.-accounting-system-integration { transition-delay: 1.2s; }
+        &.-graduated-terms-mortgage { transition-delay: 1.35s; }
+        &.-financial-calculator { transition-delay: 1.35s; }
+        &.-investor-borrower-portal { transition-delay: 1.5s; }
+      }
+    }
+  }
+}

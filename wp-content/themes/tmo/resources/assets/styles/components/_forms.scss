@@ -1,0 +1,57 @@
+.wpcf7-form {
+  .wpcf7-textarea,
+  .wpcf7-select,
+  .wpcf7-text {
+    width: 100%;
+    min-height: 2.5em;
+    padding: 0.5em;
+    border: 1px solid var(--input-border-color, #{get-color(primary)});
+    background: var(--input-bg-color, #{get-color(shades, lightest)});
+    color: var(--input-text-color, #{get-color(shades, darkest)});
+    font-size: 1.125rem;
+  }
+
+  .wpcf7-not-valid-tip {
+    padding: 0.5em 0.643em;
+    font-size: 0.875rem;
+  }
+
+  .wpcf7-submit {
+    @include button;
+
+    min-height: 2.5em;
+  }
+
+  &.sent {
+    .wpcf7-response-output {
+      border: none !important;
+      font-size: 1.25em;
+    }
+  }
+
+  &.failed,
+  &.invalid {
+    .wpcf7-response-output {
+      margin: 0;
+      color: get-color(alert, error);
+    }
+  }
+
+  .wpcf7-spinner {
+    display: none;
+  }
+
+  .req {
+    font-size: 0.75em;
+    color: get-color(alert, error);
+  }
+
+  a {
+    color: get-color(primary);
+
+    &:hover,
+    &:focus {
+      color: get-color(shades);
+    }
+  }
+}

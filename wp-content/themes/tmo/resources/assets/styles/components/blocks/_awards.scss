@@ -1,0 +1,53 @@
+.block.-awards {
+  --bg-height: 51.75em;
+  --swiper-navigation-color: #{get-color(shades)};
+
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  min-height: 51.75em;
+  background-image: url("../images/awards-bg.png");
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+  background-size: auto var(--bg-height);
+
+  @include breakpoint(1880px) {
+    background-size: calc(100% + 7em) var(--bg-height);
+  }
+
+  .acf-block-preview & {
+    background: get-color(primary);
+  }
+
+  .container {
+    padding: 0;
+  }
+
+  .award {
+    img {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
+  .awards {
+    width: 100vw;
+    max-width: 90em;
+    padding: 0 4em;
+    margin: 0 auto;
+    position: relative;
+
+    &__header {
+      margin-bottom: $spacer * 2;
+      color: get-color(shades, lightest);
+      text-align: center;
+
+      h2 {
+        max-width: 17.5em;
+        margin: 0 auto;
+        font-size: 2em;
+        line-height: 1.375;
+      }
+    }
+  }
+}

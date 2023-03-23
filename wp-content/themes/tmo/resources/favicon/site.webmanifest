@@ -1,0 +1,14 @@
+{
+    "name": "The Mortgage Office",
+    "short_name": "The Mortgage Office",
+    "icons": [
+        {
+            "src": "/wp-content/themes/tmo/android-chrome-96x96.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#313360",
+    "background_color": "#313360",
+    "display": "standalone"
+}

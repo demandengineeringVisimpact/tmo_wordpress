@@ -1,0 +1,110 @@
+.blog,
+.archive.category {
+  --bg-height: 56.4375em;
+
+  background-image: url("../images/posts-bg.png");
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: auto var(--bg-height);
+
+  @include breakpoint(1880px) {
+    background-size: calc(100% + 7em) var(--bg-height);
+  }
+
+  .page__header {
+    padding: 0;
+    text-align: center;
+
+    &,
+    .eyebrow {
+      color: get-color(shades, lightest);
+    }
+
+    @include breakpoint(540px) {
+      padding: $spacer * 7 0 $spacer * 3;
+    }
+  }
+
+  .posts {
+    display: grid;
+    gap: $spacer;
+
+    @include breakpoint(541px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include breakpoint(769px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card {
+      &__body {
+        color: get-color(shades, darkest);
+      }
+
+      @include breakpoint(641px) {
+        &:first-child {
+          display: grid;
+          grid-template-columns: 5fr 6fr 1fr;
+          grid-template-rows: repeat(2, auto) 1fr;
+          grid-template-areas:
+            "media header ."
+            "media body ."
+            "media actions .";
+          grid-column: 1 / -1;
+
+          .card__media {
+            display: grid;
+            grid-area: media;
+            min-height: 27em;
+
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: contain;
+            }
+          }
+
+          .card__header {
+            grid-area: header;
+            padding-top: $spacer * 2;
+          }
+
+          .card__body {
+            grid-area: body;
+          }
+
+          .card__actions {
+            grid-area: actions;
+            padding-bottom: $spacer * 2;
+          }
+        }
+      }
+    }
+  }
+
+  .nav-links {
+    display: flex;
+    justify-content: space-between;
+    gap: $spacer;
+  }
+
+  .nav-previous {
+    order: 2;
+  }
+
+  .nav-next {
+    order: 1;
+  }
+
+  .navigation {
+    padding: $spacer * 2 0;
+    margin-top: $spacer;
+
+    a {
+      @include button;
+
+      text-decoration: none;
+    }
+  }
+}

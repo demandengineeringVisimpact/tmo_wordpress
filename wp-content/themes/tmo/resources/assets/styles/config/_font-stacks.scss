@@ -1,0 +1,35 @@
+$font-stacks: (
+  primary: (
+    base: (
+      "font-family": "ITCAvantGardeStd, Helvetica, sans-serif",
+      "font-weight": "400",
+    ),
+    baseItalic: (
+      "font-family": "ITCAvantGardeStd, Helvetica, sans-serif",
+      "font-weight": "400",
+      "font-style": "italic",
+    ),
+    bold: (
+      "font-family": "ITCAvantGardeStd, Helvetica, sans-serif",
+      "font-weight": "700",
+    ),
+    light: (
+      "font-family": "ITCAvantGardeStd, Helvetica, sans-serif",
+      "font-weight": "300",
+    ),
+  ),
+  display: (
+    base: (
+      "font-family": "Cairo, Helvetica, sans-serif",
+      "font-weight": "600",
+    ),
+  ),
+  icon: (
+    base: (
+      "font-family": "icomoon, sans-serif !important",
+      "font-style": "normal",
+      "font-weight": "normal",
+      "font-variant": "normal",
+    ),
+  ),
+);

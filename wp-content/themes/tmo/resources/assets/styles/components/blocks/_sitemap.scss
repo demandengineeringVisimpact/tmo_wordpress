@@ -1,0 +1,37 @@
+.block.-sitemap {
+  margin-bottom: $spacer;
+
+  @include breakpoint(540px) {
+    margin: $spacer * 3 0;
+  }
+
+  .nav,
+  .sub-menu {
+    margin: 0;
+    list-style: none;
+  }
+
+  .nav {
+    padding: 0;
+  }
+
+  .sub-menu {
+    padding-left: $spacer * 2;
+    border-left: 1px solid get-color(shades, light);
+  }
+
+  .menu-item {
+    padding: math.div($spacer, 3) 0;
+
+    a {
+      color: get-color(primary);
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        color: get-color(shades);
+        text-decoration: underline;
+      }
+    }
+  }
+}

@@ -1,0 +1,97 @@
+.block.-history {
+  --swiper-navigation-color: #{get-color(shades)};
+
+  margin: $spacer * 3 0;
+
+  .history {
+    width: 100vw;
+
+    &__header {
+      max-width: 40em;
+      margin: 0 auto;
+      text-align: center;
+    }
+  }
+
+  .period {
+    width: 90%;
+    max-width: 50em;
+    padding: $spacer $spacer * 1.5;
+    transition: opacity 0.3s;
+
+    &:not(.swiper-slide-active) {
+      opacity: 0.2;
+    }
+
+    @include breakpoint(768px) {
+      width: 70%;
+    }
+  }
+
+  .card {
+    max-width: 50em;
+    padding: $spacer;
+    margin: 0 auto;
+    box-shadow: 0 0 10px get-color(shades, light);
+    text-align: center;
+
+    &__title {
+      margin-top: $spacer;
+      color: get-color(shades, darkest);
+    }
+
+    &__header {
+      .eyebrow {
+        display: grid;
+        gap: math.div($spacer, 2);
+        color: get-color(shades, light);
+
+        &::before {
+          @include icon("location");
+
+          font-size: 2em;
+        }
+      }
+    }
+
+    &__body {
+      font-size: 0.875em;
+    }
+
+    @include breakpoint(540px) {
+      &__body {
+        font-size: 1em;
+      }
+    }
+
+    @include breakpoint(640px) {
+      padding: $spacer * 3;
+    }
+  }
+
+  .swiper .swiper-button-prev,
+  .swiper .swiper-rtl .swiper-button-next {
+    left: $spacer;
+  }
+
+  .swiper .swiper-button-next,
+  .swiper .swiper-rtl .swiper-button-prev {
+    right: $spacer;
+  }
+
+  @include breakpoint(max-width 767px) {
+    --swiper-navigation-size: 22px;
+  }
+
+  @include breakpoint(960px) {
+    .swiper .swiper-button-prev,
+    .swiper .swiper-rtl .swiper-button-next {
+      left: min(calc(50% - 30%), calc(50% - 27em));
+    }
+
+    .swiper .swiper-button-next,
+    .swiper .swiper-rtl .swiper-button-prev {
+      right: min(calc(50% - 30%), calc(50% - 27em));
+    }
+  }
+}
